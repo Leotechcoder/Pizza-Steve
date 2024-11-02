@@ -1,8 +1,3 @@
-# React + Vite
+# React-Router + Redux + CRUD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto tiene una pequeña muestra de lo he aprendido estos ultimos 5 meses luego de insertarme al Desarrollo Front End. En el mismo, como en proyectos anteriores muestro como trabajo en la creacion de SPA mediante el control de las rutas gracias a React-Router. Y como obtengo control de los formularios mediante Redux para el manejo del state de toda la App. 
