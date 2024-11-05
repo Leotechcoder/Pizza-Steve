@@ -1,0 +1,41 @@
+.social-links {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--color-enlace);
+    margin: 0 0.5rem;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.github{
+    background-color: var(--color-azul-secundario);
+    border-radius: 50%;
+}
+
+.social-links a:hover img {
+    color: var(--color-azul-secundario);
+    opacity: 0.8;
+}
+.logo-wha{
+    width: 100px;
+    height: 100px;
+    filter: invert(58%) sepia(51%) saturate(660%) hue-rotate(90deg) brightness(100%) contrast(98%);
+    transition: opacity 0.3s ease;
+}
+.logo-insta{
+    width: 100px;
+    height: 100px;
+    filter:  invert(24%) sepia(77%) saturate(354%) hue-rotate(306deg) brightness(196%) contrast(144%);
+    transition: opacity 0.3s ease;
+}
+

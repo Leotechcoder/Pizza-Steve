@@ -24,7 +24,9 @@ const Form = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} className="d-flex my-2 my-lg-0 gap-3">
+    
+
+    <form onSubmit={handleSubmit} className="d-flex my-2 my-lg-0 gap-3 vh-25">
                 <input
                     className="form-control me-sm-2"
                     type="text"
@@ -39,6 +41,7 @@ const Form = () => {
                     Buscar
                 </button>
             </form>
+    
   )
 }
 
