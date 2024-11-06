@@ -15,7 +15,7 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation sx={{ width: 450 }} value={value} onChange={handleChange} className='w-75 rounded-3'>
+    <BottomNavigation sx={{ width: 350 }} value={value} onChange={handleChange} className='buttonnavigation rounded-3'>
      
       <BottomNavigationAction
         label="Recientes"

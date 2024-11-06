@@ -4,16 +4,32 @@ import Buttons from "../components/Buttons"
 import NavbarMovil from "../components/NavbarMovil"
 import LabelBottomNavigation from "../components/buttonNavigation"
 import SectionCarta from "../components/SectionCarta"
+// import { useSelector } from 'react-redux'
 
 
 
 const Carta = () => {
+
+  // const { click } = useSelector(store=>store.togler.click)
+
+
+
+ 
+
+
   return (
     <>
     
-    <div className="w-100 d-flex flex-column gap-4">
+    <div 
+    className="w-100 d-flex flex-column gap-4"
+    
+    // initial={{ scale: 1 }}
+    // variants={animation ? variants : null}
+      //  layoutScroll
+      //   style={{ overflow: "scroll" }}
+    >
       {/*Buscador */}
-      <div className="w-100 d-flex justify-content-end gap-2 vh-25">
+      <div className="w-100 d-flex justify-content-end gap-2 vh-25 ps-4">
 
           <NavbarMovil/>
       

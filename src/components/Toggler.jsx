@@ -1,43 +1,45 @@
 import { NavLink } from "react-router-dom"
 import { PATH } from "../Routes/PATH"
-import { useEffect, useState } from "react"
+import './toggler.css'
+import { useDispatch, useSelector } from "react-redux"
+import { toggleClick } from "../Feature/Pizzas/toglerslice"
 
 const Toggler = () => {
 
-const [click, setClick] = useState(false)
+const { click } = useSelector(store=>store.togler)
+
+const dispatch = useDispatch()
+
 
 const handleClick = ()=>{
   if(click){
-    setClick(false)
+    dispatch(toggleClick(false))
   }else{
-    setClick(true)
+    dispatch(toggleClick(true))
   }
   
 }
 
-useEffect(() => {
-  
-}, [click])
 
 
 
   return (
     <nav className="navbar navbar-expand-lg navbar-transparent bg-transparent">
-  <button onClick={handleClick} className="navbar-toggler navbar-toggler-center" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  <button onClick={handleClick} className="navbar-toggler navbar-toggler-center togler ms-4" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
   {click ? 
   <div className=" w-100 h-75" id="collapsibleNavId">
             <ul className=" w-100 align-items-center navbar-nav d-flex flex-column gap-4 me-5 mt-2 mt-lg-0">
                 <li>
-                    <NavLink to={PATH.casa} className={({isActive})=> 
+                    <NavLink onClick={handleClick} to={PATH.casa} className={({isActive})=> 
                                 isActive ? 'nav-link me-3 bg-secundary text-white rounded-1 fw-bolder border-bottom border-primary'
                                          : 'nav-link me-3 text-white rounded-1 fw-bolder'} 
                  
                         >COMO EN CASA</NavLink>
                 </li>
                 <li>
-                    <NavLink to={PATH.carta}
+                    <NavLink onClick={handleClick} to={PATH.carta}
                         className={({isActive})=> 
                             isActive ? 'nav-link me-3 bg-secundary text-white rounded-1 fw-bolder border-bottom border-primary'
                                      : 'nav-link me-3 text-white rounded-3 fw-bolder'}
@@ -45,7 +47,7 @@ useEffect(() => {
                         >NUESTRA CARTA</NavLink>
                 </li>
             </ul>
-        </div> : false}
+        </div> : null}
   
 </nav>
   )

@@ -6,6 +6,7 @@ import Carta from './Pages/Carta'
 import Error from './Pages/Error'
 import { PATH } from './Routes/PATH'
 import RootLayout from './Routes/Rootlayout'
+import Description from './Pages/Description'
 
 const router = createBrowserRouter(
   [{
@@ -17,8 +18,10 @@ const router = createBrowserRouter(
         { path: PATH.inicio, element: <Inicio/> }, 
         {path: PATH.casa, element: <Casa/> },
         { path: PATH.carta, element: <Carta/>},
-          
-  ]}
+        
+        
+      ]},
+      { path: PATH.descripcion, element: <Description/>},
   
   ]
 )

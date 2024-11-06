@@ -1,29 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Productos } from "../../Data/Productos.js"
 
 const initialState = {
-    list: [{
-        id: null,
-        name: "",
-        price: null,
-        image: "",
-    }],
+    list: Productos,
+    ide: null,
     selectedPizza: null,
     loading: false,
     error: null,
 }
 
-const menuses = createSlice(
+const pizzas = createSlice(
     {
-        name: "menu",
+        name: "pizza",
         initialState,
         reducers: {
-            addMenu: (state, action) => {
+            addPizza: (state, action) => {
                 state.list.push(action.payload) 
             },
-            updateMenu: (state, action)=>{
+            updatePizza: (state, action)=>{
                 const id = action.payload
                 state.list.filter(el => el.id !== id)
 
+            },
+            updateIde:(state, action){
+                state.ide = action.payload;
             },
             setLoading: (state, action) => {
                 state.loading = action.payload;
@@ -37,6 +37,6 @@ const menuses = createSlice(
     }
 )
 
-export const { addMenu, updateMenu, setLoading, setError } = menuses.actions;
+export const { addMenu, updateMenu, setLoading, setError, updateIde } = pizzas.actions;
 
-export default menuses.reducer;
+export default pizzas.reducer;
