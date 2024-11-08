@@ -4,51 +4,37 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import '../components/typografy.css'
 import './descripcion.css'
 import './payment.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Articlepayment from "../components/Articlepayment";
-import {  useEffect, useRef } from "react";
+import { calculateTotal, deleteMenu } from "../Feature/Pizzas/menuSlice";
+
+
 
 const Payment = () => {
 
 
-const { producto, iva } = useSelector((state)=>state.menu)
+const { precioTotal, producto, iva } = useSelector((state)=>state.menu)
 
-let priceRef = useRef(0)
-let countRef = useRef(0)
+const total = precioTotal + precioTotal * (iva/100)
+const dispatch = useDispatch()
 
-useEffect(() => {
- sumPrice(producto)
- sumCount(producto)
-}, [producto])
-
-
-const sumPrice = (producto)=>{
-  producto.map((producto)=> priceRef += producto.precio)
-} 
-
-const sumCount = (producto)=>{
-  producto.map((producto)=> countRef += producto.count)
+const handleDelete = ()=>{
+  dispatch(deleteMenu())
+  dispatch(calculateTotal())
 }
-
-
-
-const subTotal = priceRef.current*countRef.current
-const total = subTotal * iva + subTotal
-
-
 
   return (
     <div className="vw-100 vh-100 d-flex flex-column mt-2 px-2 div-master-payment">
       <div className='w-100 d-flex justify-content-start mt-4'>
       <Link to={PATH.carta} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
-      <h2 className='roboto h2-payment '>Carrito</h2>    
+      <h2 className='roboto h2-payment '>Su pedido</h2>    
 
     </div>
     <div className="w-100 d-flex flex-column gap-2 div-productos-payment">
 
         {/*btn para borrar todo */}
         <div className="div-remove ">
-          <button className=" btn-remove-payment btn ">
+          <button onClick={handleDelete} className=" btn-remove-payment btn d-flex align-items-center justify-content-center ">
             <span className="roboto">Remove All</span>
           </button>  
         </div>
@@ -66,7 +52,7 @@ const total = subTotal * iva + subTotal
 
             <div className="d-flex px-3 justify-content-between">
                 <span>Sub Total</span>
-                <span>${subTotal}</span>
+                <span>${precioTotal}</span>
             </div>
             <div className="d-flex px-3 justify-content-between">
                 <span>IVA</span>

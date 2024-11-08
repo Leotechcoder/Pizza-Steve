@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import { useEffect, useRef } from 'react';
-import { deleteProductMenu, updatecountMenu } from '../Feature/Pizzas/menuSlice';
+import { calculateTotal, removeProductMenu, updatecountMenu } from '../Feature/Pizzas/menuSlice';
 
 
 
@@ -38,7 +38,7 @@ const handleAddCount = () => {
   const countcurrent = count + 1
   pricecurrent = pricecurrent + precio
   dispatch(updatecountMenu({ id, countcurrent, pricecurrent }))
-
+  dispatch(calculateTotal())
 
 };
 const handleSubCount = () => {
@@ -48,7 +48,7 @@ const handleSubCount = () => {
     const countcurrent = count - 1
     pricecurrent = pricecurrent - precio
     dispatch(updatecountMenu({ id, countcurrent, pricecurrent }))
-
+    dispatch(calculateTotal())
   }else{
     deleteProduct()
   }
@@ -56,7 +56,8 @@ const handleSubCount = () => {
 };
 
 const deleteProduct = ()=>{
-  dispatch(deleteProductMenu(id))
+  dispatch(removeProductMenu(id))
+  dispatch(calculateTotal())
 }
 
 

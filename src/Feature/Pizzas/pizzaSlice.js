@@ -5,9 +5,10 @@ const initialState = {
     list: Productos,
     productCart: null,
     like: false,
-    selectedPizza: null,
+    selectedCarta: Productos ,
+    categoria: ['Pizzas', 'Empanadas', 'Hamburguesas', 'Lomos'],
     loading: false,
-    error: null,
+    error: null,    
 }
 
 const pizzas = createSlice(
@@ -23,11 +24,18 @@ const pizzas = createSlice(
                 state.list.filter(el => el.id !== id)
 
             },
-            updateIde:(state, action)=>{
-                state.productCart = action.payload;
+            allProductos:(state)=>{
+                state.list = Productos;
             },
             updateLike:(state, action)=>{
                 state.like = action.payload;
+            },
+            selectedCarta: (state, action) => {
+                if(action.payload === ''){
+                    state.selectedCarta = Productos;
+                    return;
+                }
+                state.selectedCarta = action.payload;
             },
             setLoading: (state, action) => {
                 state.loading = action.payload;
@@ -41,6 +49,6 @@ const pizzas = createSlice(
     }
 )
 
-export const { addMenu, updateMenu, setLoading, setError, updateIde, updateLike } = pizzas.actions;
+export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateIde, updateLike } = pizzas.actions;
 
 export default pizzas.reducer;

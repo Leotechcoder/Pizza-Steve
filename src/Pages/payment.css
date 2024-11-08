@@ -10,7 +10,7 @@
 
 
 .h2-payment{
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 .div-remove{
@@ -30,6 +30,8 @@
 
 .container-articles{
     width:100%;
+    height: 500px;
+    background-color: rgba(189, 189, 214, 0.1) ;
 }
 
 .article-payment{

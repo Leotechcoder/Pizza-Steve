@@ -10,7 +10,7 @@ import { PATH } from "../Routes/PATH"
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { updateLike } from '../Feature/Pizzas/pizzaSlice';
-import { addMenu } from '../Feature/Pizzas/menuSlice';
+import { addMenu, calculateTotal } from '../Feature/Pizzas/menuSlice';
 
 
 const Description = () => {
@@ -21,13 +21,10 @@ const dispatch = useDispatch()
 
 //trabajo con el state de pizzas
 const like = useSelector(store=>store.pizzas.like)
-
 const producto = useSelector((store)=>store.pizzas.productCart);
 
 const {id, nombre, descripcion, precio, imagen } = producto;
 
-//guardo valor de objeto en el state de menu
-const dispatchMenu = useDispatch()
 
 //creo un state propio del componente
 const [count, setCount] = useState(1)
@@ -35,7 +32,8 @@ const [count, setCount] = useState(1)
 //funcion para el boton de agregar al carrito
 
 const handleAddCart = () => {
-  dispatchMenu(addMenu({id, nombre, imagen, count, precio }))
+  dispatch(addMenu({id, nombre, imagen, count, precio }))
+  dispatch(calculateTotal())
 }
 
 //funciones para el boton de restar y sumar cantidad
@@ -52,6 +50,9 @@ const subhandleClick=()=>{
 
 //calculo el precio total de la pizza según la cantidad seleccionada
 const price = (precio * count);
+
+
+
 //funcion para hacer like
 const handleLike = ()=>{
   if(like){
