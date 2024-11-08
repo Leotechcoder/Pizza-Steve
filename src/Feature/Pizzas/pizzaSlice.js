@@ -3,7 +3,8 @@ import { Productos } from "../../Data/Productos.js"
 
 const initialState = {
     list: Productos,
-    ide: null,
+    productCart: null,
+    like: false,
     selectedPizza: null,
     loading: false,
     error: null,
@@ -22,8 +23,11 @@ const pizzas = createSlice(
                 state.list.filter(el => el.id !== id)
 
             },
-            updateIde:(state, action){
-                state.ide = action.payload;
+            updateIde:(state, action)=>{
+                state.productCart = action.payload;
+            },
+            updateLike:(state, action)=>{
+                state.like = action.payload;
             },
             setLoading: (state, action) => {
                 state.loading = action.payload;
@@ -37,6 +41,6 @@ const pizzas = createSlice(
     }
 )
 
-export const { addMenu, updateMenu, setLoading, setError, updateIde } = pizzas.actions;
+export const { addMenu, updateMenu, setLoading, setError, updateIde, updateLike } = pizzas.actions;
 
 export default pizzas.reducer;

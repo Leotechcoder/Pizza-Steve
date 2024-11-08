@@ -6,6 +6,8 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import './article.css'
+import { Link } from 'react-router-dom';
+import { PATH } from '../Routes/PATH'
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
@@ -35,7 +37,11 @@ export default function LabelBottomNavigation() {
         value="nearby"
         icon={<LocationOnIcon />}
       />
-      <BottomNavigationAction label="Carrito" value="ShoppingCartIcon" icon={<ShoppingCartIcon />} />
-    </BottomNavigation>
+      <Link to={PATH.payment}>
+      <BottomNavigationAction label="Carrito" value="ShoppingCartIcon" icon={<ShoppingCartIcon />} />  
+      </Link>
+      
+      </BottomNavigation>
+    
   );
 }

@@ -8,20 +8,37 @@ import './descripcion.css'
 import { Link } from 'react-router-dom';
 import { PATH } from "../Routes/PATH"
 import { useState } from 'react';
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { updateLike } from '../Feature/Pizzas/pizzaSlice';
+import { addMenu } from '../Feature/Pizzas/menuSlice';
 
 
 const Description = () => {
 
-const id = useSelector((store)=>store.pizzas.ide)
 
-const productos = useSelector((store)=>store.pizzas.list)
+//para controlar el valor de la key "like"
+const dispatch = useDispatch()
 
-const producto = productos.find(pizza=>pizza.id===id)
+//trabajo con el state de pizzas
+const like = useSelector(store=>store.pizzas.like)
 
-const { nombre, descripcion, precio, imagen } = producto
+const producto = useSelector((store)=>store.pizzas.productCart);
 
+const {id, nombre, descripcion, precio, imagen } = producto;
+
+//guardo valor de objeto en el state de menu
+const dispatchMenu = useDispatch()
+
+//creo un state propio del componente
 const [count, setCount] = useState(1)
+
+//funcion para el boton de agregar al carrito
+
+const handleAddCart = () => {
+  dispatchMenu(addMenu({id, nombre, imagen, count, precio }))
+}
+
+//funciones para el boton de restar y sumar cantidad
 
 const addhandleClick = () => {
       setCount(count + 1)
@@ -33,15 +50,33 @@ const subhandleClick=()=>{
  
 }
 
+//calculo el precio total de la pizza según la cantidad seleccionada
+const price = (precio * count);
+//funcion para hacer like
+const handleLike = ()=>{
+  if(like){
+    dispatch(updateLike(false))
+  }else{
+
+    dispatch(updateLike(true))
+  }
+}
+
 
   return (
     <>
-    <div className='vw-100 vh-100 d-flex flex-column justify-content-evenly'>
+    <div className='vw-100 vh-100 d-flex flex-column justify-content-evenly div-master-sec-carta'>
 
     <div className='vh-25 d-flex justify-content-between'>
       <Link to={PATH.carta} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
-      <h2>Detalle</h2>
-      <button className='me-3 btn btn-back '><FavoriteIcon /></button>
+      <h2 className='roboto'>Detalle</h2>
+      <button onClick={handleLike} className='me-3 btn btn-back'>
+        
+        {like ? <FavoriteIcon className='btn-like-dark'/> : <FavoriteIcon className='btn-like-white' />}
+        
+        
+        </button>
+      
 
     </div>
 
@@ -61,8 +96,8 @@ const subhandleClick=()=>{
 
     </div>
     <div className='vh-25 d-flex justify-content-between'>
-        <span className='ms-5 span-price roboto'>${precio}</span>
-        <button className=' btn-carrito me-5'><AddShoppingCart className='add-cart'/></button>
+        <span className='ms-5 span-price roboto'>${price}</span>
+        <Link  className='link-cart me-5' to={PATH.carta}><button className=' btn-carrito me-5'  onClick={handleAddCart} ><AddShoppingCart className='add-cart'/></button></Link>
     </div>
     </div>
     </>

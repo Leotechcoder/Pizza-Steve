@@ -15,7 +15,7 @@ const Article = ( { producto } ) => {
 const { id, nombre, precio, demora, imagen } = producto; 
 
 const handleClick = ()=>{
-     dispatch(updateIde(id))
+     dispatch(updateIde(producto))
 }
 
   return (
@@ -40,16 +40,11 @@ const handleClick = ()=>{
                     >
                       ${precio}
               </span>
-              {/* <button 
-                    className=''
-                    onClick={handleClick}
-                  > */}
-              <Link onClick={handleClick} to={PATH.descripcion} className= 'btn btn-article  mb-4 me-2' 
-                 
-                        >
+             
+              <Link onClick={handleClick} to={PATH.descripcion} className= 'btn btn-article  mb-4 me-2'>
                     <AddIcon />
               </Link>
-              {/* </button>  */}
+             
           </div>
           
 
