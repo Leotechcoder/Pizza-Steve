@@ -3,7 +3,7 @@
 import './carta.css'
 import Buttons from "../components/Buttons"
 import NavbarMovil from "../components/NavbarMovil"
-import LabelBottomNavigation from "../components/buttonNavigation"
+import LabelBottomNavigation from "../components/ButtonNavigation"
 import SectionCarta from "../components/SectionCarta"
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
