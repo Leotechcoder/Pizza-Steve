@@ -4,8 +4,3 @@
     filter:contrast(175%) brightness(103%);
 }
 
-.img-fondo{
-    background-image: url('/pizza-piedra.jpg');
-    background-size: cover;
-
-}

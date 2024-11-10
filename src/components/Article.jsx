@@ -7,7 +7,7 @@ import  AddShoppingCart from '@mui/icons-material/AddShoppingCart'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH';
 import { useDispatch } from 'react-redux';
-import { updateIde } from '../Feature/Pizzas/pizzaSlice.js'
+import { updateProductCart } from '../Feature/Pizzas/pizzaSlice.js'
 import { addMenu, calculateTotal } from '../Feature/Pizzas/menuSlice.js';
 
 const Article = ( { producto } ) => {
@@ -16,11 +16,12 @@ const Article = ( { producto } ) => {
 
 const { id, nombre, precio, demora, imagen } = producto; 
 
+//abre el detalle
 const handleClick = ()=>{
-     dispatch(updateIde(producto))
+     dispatch(updateProductCart(producto))
 }
 
-const handleAddCart = (id, nombre, precio, imagen) => {
+const handleAddCart = () => {
   let count = 1
   dispatch(addMenu({id, nombre, imagen, count, precio }))
   dispatch(calculateTotal())
@@ -28,31 +29,39 @@ const handleAddCart = (id, nombre, precio, imagen) => {
 
   return (
     <article id={id} className='article'>
-        <div className='d-flex gap-2'>
+        <div className='div-img-article'>
 
           <img className='img-article' src={imagen} alt="Pizza" />
 
         </div>
-        <div className='d-flex flex-column justify-content-center align-items-center text-left'>
+        <div className='div-description-article'>
 
-          <h2 className=' h2-article mt-4 alegreya'>{nombre}</h2>
-          <span className='w-100 ps-2'>
-            <IconButton className='mb-1' color="secondary" aria-label="add an alarm">
-                    <AlarmIcon />
-            </IconButton> 
-            {demora}
-            </span>
-          <div className='d-flex gap-4'>
-              <span 
-                    className='roboto span-price-article fs-3 ps-2'
-                    >
-                      ${precio}
+          <div className='div-title-article '>
+
+          <h2 className=' h2-article alegreya'>{nombre}</h2>
+          </div>
+
+          <div className='div-data-article'>
+                <span 
+                      className='roboto span-price-article fs-3'
+                      >
+                        ${precio}
+                </span>
+              <span className='w-50 h-100 d-flex'>
+                    <IconButton  color="secondary" aria-label="add an alarm">
+                            <AlarmIcon />
+                    </IconButton> 
+                    <span className='mt-1'>
+                          {demora}
+                    </span>
               </span>
+          </div>
+          <div className='div-btn-article'>
              
-              <Link onClick={handleClick} to={PATH.descripcion} className= 'btn btn-article  mb-4 me-2'>
-                    <AddIcon />
+              <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
+                    <AddIcon className='icon-article'/>
               </Link>
-              <button className=' btn-carrito me-5'  onClick={handleAddCart} ><AddShoppingCart className='add-cart'/></button>
+              <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button>
              
           </div>
           

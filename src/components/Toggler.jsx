@@ -24,9 +24,9 @@ const handleClick = ()=>{
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-transparent bg-transparent">
-  <button onClick={handleClick} className="navbar-toggler navbar-toggler-center togler ms-4" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+    <nav className="navbar navbar-expand-lg ">
+  <button onClick={handleClick} className="navbar-toggler ms-3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon togler"></span>
   </button>
   {click ? 
   <div className=" w-100 h-75" id="collapsibleNavId">

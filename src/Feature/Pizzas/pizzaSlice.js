@@ -3,7 +3,7 @@ import { Productos } from "../../Data/Productos.js"
 
 const initialState = {
     list: Productos,
-    productCart: null,
+    productCart: {},
     like: false,
     selectedCarta: Productos ,
     categoria: ['Pizzas', 'Empanadas', 'Hamburguesas', 'Lomos'],
@@ -43,12 +43,15 @@ const pizzas = createSlice(
             setError: (state, action) => {
                 state.error = action.payload;
             },
+            updateProductCart: (state, action) => {
+                state.productCart = action.payload;
+            },
 
 
         },
     }
 )
 
-export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateIde, updateLike } = pizzas.actions;
+export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateProductCart, updateLike } = pizzas.actions;
 
 export default pizzas.reducer;

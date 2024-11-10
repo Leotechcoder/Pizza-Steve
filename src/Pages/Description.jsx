@@ -21,9 +21,8 @@ const dispatch = useDispatch()
 
 //trabajo con el state de pizzas
 const like = useSelector(store=>store.pizzas.like)
-const producto = useSelector((store)=>store.pizzas.productCart);
+const {id, nombre, descripcion, precio, imagen } = useSelector((store)=>store.pizzas.productCart);
 
-const {id, nombre, descripcion, precio, imagen } = producto;
 
 
 //creo un state propio del componente

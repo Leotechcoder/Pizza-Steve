@@ -1,5 +1,6 @@
 
-import '../components/article.css'
+
+import './carta.css'
 import Buttons from "../components/Buttons"
 import NavbarMovil from "../components/NavbarMovil"
 import LabelBottomNavigation from "../components/buttonNavigation"
@@ -29,25 +30,29 @@ return (
     <>
     
     <div 
-    className="w-100 d-flex flex-column gap-4">
+    className="container-carta">
       
     {/*Buscador */}
-      <div className="w-100 d-flex justify-content-end gap-2 vh-25 ps-4">
+      <div className="container-navbarmobil">
 
           <NavbarMovil/>
       
       </div>
     
     {/*Botones de navegacion*/}
-      <div className="vh-25">
+
+      <div className="container-botonera">
           <Buttons/>
       </div>
+      
+    {/*Contenido de la carta*/}
+
       <div className="section-carta">
           <SectionCarta/>
       </div>
       
-    {/*Contenido de la carta*/}
-      <div className="w-100 d-flex justify-content-center ">
+      
+      <div className="container-label-btn">
            
           <LabelBottomNavigation/>
        

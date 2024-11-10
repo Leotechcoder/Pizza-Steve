@@ -2,8 +2,8 @@
 
 const Footer = () => {
   return (
-    <div className='container-fluid vh-25'>
-        <div className='w-100 text-left d-flex' >
+    <div className='container-fluid'>
+        <div className='w-100 h-100 text-left d-flex' >
             <h1 className=' me-3 text-white pacifico-regular '>
               Pizza Steve
             </h1>
