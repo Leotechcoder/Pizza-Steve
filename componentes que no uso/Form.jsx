@@ -24,9 +24,11 @@ const Form = () => {
     }
 
   return (
-    <form onSubmit={handleSubmit} className="d-flex my-2 my-lg-0 gap-3">
+    
+
+    <form onSubmit={handleSubmit} className="w-75 d-flex my-2 my-lg-0 gap-3 vh-25">
                 <input
-                    className="form-control me-sm-2"
+                    className="w-75 form-control me-sm-2"
                     type="text"
                     placeholder="Buscar"
                     value={form.nombre}
@@ -39,6 +41,7 @@ const Form = () => {
                     Buscar
                 </button>
             </form>
+    
   )
 }
 

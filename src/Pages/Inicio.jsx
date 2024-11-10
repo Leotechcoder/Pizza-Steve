@@ -1,12 +1,17 @@
-import '../components/main.css'
+
+import './inicio.css'
+import About from '../components/About'
+import Redes from '../components/Redes'
 
 const Inicio = () => {
   return (
     <>
   
-
-          <img className='img-love position-absolute top-50 start-50 translate-middle ' src="/amamos-lapizza.svg" alt="Amamos-la-pizza" />
-           <img className=' img-tentate object-fit-cover' src="/pizza-piedra.jpg" alt="Pizza a la piedra" /> 
+          <div className='w-100 h-100 d-flex align-items-center justify-content-evenly gap-5 flex-column'>
+            <About/>
+            <img className='img-love ' src="/amamos-lapizza.svg" alt="Amamos-la-pizza" />
+            <Redes/>
+            </div>
 
       
     </>

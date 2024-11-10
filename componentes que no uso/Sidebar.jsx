@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { PATH } from "../Routes/PATH"
+import { PATH } from "../src/Routes/PATH"
 
 
 const routes = [

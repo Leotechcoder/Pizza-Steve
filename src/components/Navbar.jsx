@@ -1,4 +1,4 @@
-import Form from './Form'
+// import Form from './Form'
 import './navbar.css'
 import { NavLink } from "react-router-dom"
 import { PATH } from "../Routes/PATH"
@@ -10,9 +10,9 @@ const Navbar = () => {
   return (
     <>
       <nav
-    className="navbar bg-transparent container-fluid pt-3 navbar-expand-lg navbar-light bg-light">
+    className="navbar bg-transparent container-fluid pt-3 navbar-light bg-light text-center">
     <div className="container-fluid px-4 gap-5 h-100">
-        <div >
+        <div className='w-100' >
             <h1 className='ms-2'>
                <NavLink to={PATH.inicio} className={({isActive})=> 
                                 isActive ? 'nav-link me-3 bg-transparent text-white rounded-3 pacifico-regular '
@@ -24,7 +24,7 @@ const Navbar = () => {
         </div>
         
         
-        <div className="collapse navbar-collapse" id="collapsibleNavId">
+        {/* <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav ms-auto gap-4 me-5 mt-2 mt-lg-0">
                 <li>
                     <NavLink to={PATH.casa} className={({isActive})=> 
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </li>
             </ul>
             <Form/>
-        </div>
+        </div> */}
     </div>
 </nav>
 
