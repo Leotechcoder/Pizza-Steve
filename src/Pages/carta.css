@@ -8,10 +8,10 @@
     gap: 1.2rem;
 }
 .container-navbarmobil{
-    width: 100%;
+    width: 80%;
     background-color: var(--main-color);
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
 }
 .container-botonera{

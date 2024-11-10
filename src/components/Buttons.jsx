@@ -41,7 +41,7 @@ const handleClick = (e) => {
 }
 
   return (
-    <div className=" d-flex gap-3 overflow-x-scroll ps-3">
+    <div className=" d-flex gap-3 overflow-x-scroll px-2">
     
         <button onClick={handleClick} type='button' className='btn btn-light'>All</button>
         <button onClick={handleClick} type='button' className='btn btn-light'>Pizzas</button>
