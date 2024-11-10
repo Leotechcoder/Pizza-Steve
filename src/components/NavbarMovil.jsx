@@ -33,7 +33,7 @@ const NavbarMovil = () => {
 
   return (
     
-    <nav className="w-100 navbar bg-body-transparent container-fluid">
+    <nav className="w-75 d-flex justify-content-center navbar bg-body-transparent container-fluid">
     <div className="w-100 d-flex">
       <form onSubmit={handleSubmit} className="w-100 d-flex justify-content-end gap-3" role="search">
         <input 

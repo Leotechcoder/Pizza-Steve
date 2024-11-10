@@ -11,8 +11,17 @@ import './article.css'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH'
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 export default function LabelBottomNavigation() {
+
+  const [value, setValue] = useState('recents');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
       right: 23,
@@ -28,7 +37,7 @@ export default function LabelBottomNavigation() {
   
 
   return (
-    <BottomNavigation sx={{ width: 350 }} className='buttonnavigation rounded-3'>
+    <BottomNavigation sx={{ width: 350 }}  value={value} onChange={handleChange} className='buttonnavigation rounded-3'>
      
       <BottomNavigationAction
         label="Recientes"

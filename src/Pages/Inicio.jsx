@@ -1,5 +1,5 @@
-import '../components/main.css'
-import '../components/body.css'
+
+import './inicio.css'
 import About from '../components/About'
 import Redes from '../components/Redes'
 
