@@ -7,6 +7,7 @@ import './payment.css'
 import { useDispatch, useSelector } from "react-redux";
 import Articlepayment from "../components/Articlepayment";
 import { calculateTotal, deleteMenu } from "../Feature/Pizzas/menuSlice";
+import { WindowRounded } from "@mui/icons-material";
 
 
 
@@ -15,12 +16,41 @@ const Payment = () => {
 
 const { precioTotal, producto, iva } = useSelector((state)=>state.menu)
 
+let pedido = 'Hola! mi pedido es: %0a'; 
+const lista = ()=>{
+
+  producto.forEach(element => {
+  
+    const { nombre, count } = element;
+    pedido += `${count} de ${nombre}%0a`;
+  });
+} 
+  
+  
+
 const total = precioTotal + precioTotal * (iva/100)
 const dispatch = useDispatch()
 
 const handleDelete = ()=>{
   dispatch(deleteMenu())
   dispatch(calculateTotal())
+}
+
+const handlePay = ()=>{
+  
+  lista()
+  setTimeout( () =>{
+    const number = "+5492984211700";
+    const mensaje = pedido;
+    const Total =  `Con un total de: $${total}.`
+    
+    const url = `https://wa.me/${number}?text=${mensaje}%0a${Total}%0a%0a`;
+    window.open(url, '_blank').focus();
+ 
+    console.log('no anduvo pagar');
+
+  },1)
+  
 }
 
   return (
@@ -67,7 +97,7 @@ const handleDelete = ()=>{
     
     <div className="d-flex flex-column gap-2 div-btn-pagar-payment my-4">
         {/*btn para pagar */}
-        <button className="btn-pagar-payment btn roboto">Pagar</button>
+        <button onClick={handlePay} className="btn-pagar-payment btn roboto">Pagar</button>
     </div>
 
     </div>
