@@ -35,7 +35,7 @@ const handleAddCart = () => {
       id={id} 
       className='article custom-article'
       initial={{ opacity: 0.8, scale: 0.8 }} // Estado inicial antes de estar en vista
-      whileInView={{ opacity: 1, scale: 1 }} // Estado al estar en vista al 90%
+      whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
       exit={{ opacity: 0.8, scale: 0.8 }} // Estado al salir de la vista
       transition={{ duration: 0.3 }} // Duración de la animación
       viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista

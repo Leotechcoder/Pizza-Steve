@@ -34,7 +34,7 @@ const handlePay = ()=>{
   
   lista()
   setTimeout( () =>{
-    const number = "+5492984211700";
+    const number = "+5492984307550";
     const mensaje = pedido;
     const Total =  `Con un total de: $${total}.`
     
