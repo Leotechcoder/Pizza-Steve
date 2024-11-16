@@ -52,7 +52,7 @@
     display: grid;
     margin: 0 auto;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(180px, .8fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 290px));
     grid-auto-rows: 220px;
     column-gap: 1.2rem;
     row-gap: 1.2rem;
@@ -60,6 +60,12 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
     scrollbar-width: none;
+}
+
+@media (min-width: 437px) {
+    .section-carta{
+        grid-template-columns: repeat(auto-fit, minmax(140px, 160px));
+    }
 }
 
 #section-carta::-webkit-scrollbar{

@@ -34,14 +34,14 @@ const handleAddCart = () => {
     <motion.article 
       id={id} 
       className='article custom-article'
-      initial={{ opacity: 0.8, scale: 0.8 }} // Estado inicial antes de estar en vista
+      initial={{ opacity: 0.7, scale: 0.7 }} // Estado inicial antes de estar en vista
       whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
-      exit={{ opacity: 0.8, scale: 0.8 }} // Estado al salir de la vista
+      exit={{ opacity: 0.7, scale: 0.7 }} // Estado al salir de la vista
       transition={{ duration: 0.3 }} // Duración de la animación
       viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
       
       >
-        <div className='div-img-article custom-width-img-article'>
+        <div className='custom-width-img-article'>
 
           <img className='img-article' src={imagen} alt="Pizza" />
 
@@ -50,18 +50,18 @@ const handleAddCart = () => {
 
           <div className='div-title-article '>
 
-          <h2 className=' h2-article alegreya fs-4'>{nombre}</h2>
+          <h2 className=' h2-article alegreya fs-5'>{nombre}</h2>
           </div>
 
           <div className='div-data-article'>
                 <span 
-                      className='roboto span-price-article'
+                      className='span-price-article'
                       >
                         ${precio}
                 </span>
-              <span className='w-50 h-100 d-flex w-50 h-100'>
+              <span className='span-alarm-art'>
                     <IconButton  color="secondary" aria-label="add an alarm">
-                            <AlarmIcon />
+                            <AlarmIcon className="icon-alarm"/>
                     </IconButton> 
                     <span className='mt-1'>
                           {demora}
@@ -71,7 +71,7 @@ const handleAddCart = () => {
           <div className='div-btn-article'>
              
               <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
-                    <AddIcon className='icon-article'/>
+                    {/* <AddIcon className='icon-article'/> */} Info
               </Link>
               <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button>
              

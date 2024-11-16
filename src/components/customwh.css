@@ -6,8 +6,11 @@
 
 /*Contenedor padre de la imagen*/
 .custom-width-img-article {
-    width: 50%; /* Para pantallas pequeñas */
+    width: 40%; /* Para pantallas pequeñas */
     height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
 }
 
 /*Contenedor padre de la descripción*/
@@ -49,11 +52,11 @@
     .custom-width-img-article {
         width: 90%; 
         height: 45%;
+        object-fit: contain;
+        scale: .9;
     }
-    .div-img-article{
-        width: 90%;
-        height: 45%;
-    }
+
+      
     .custom-div-description-article {
         width: 100%;
         height: 65%;

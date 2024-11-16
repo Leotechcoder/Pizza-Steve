@@ -1,62 +1,55 @@
-
-import { useDispatch, useSelector } from "react-redux"
-import { selectedCarta } from "../Feature/Pizzas/pizzaSlice"
-import '../Pages/carta.css'
-
+import { useDispatch, useSelector } from "react-redux";
+import { selectedCarta } from "../Feature/Pizzas/pizzaSlice";
+import { useState } from "react";
+import "../Pages/carta.css";
+import "./buttons.css"
 
 const Buttons = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
 
-const Productos = useSelector(state=>state.pizzas.list)
+  const Productos = useSelector((state) => state.pizzas.list); // Productos en Redux
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch()
+  const categorias = ["All", "Pizzas", "Hamburguesas", "Empanadas", "Lomos"]; // Categorías a mostrar
 
-const handleClick = (e) => {
-    switch (e.target.textContent) {
-      case 'All':
-        dispatch(selectedCarta(Productos))
-        break;
-      case 'Pizzas':
-        dispatch(selectedCarta(Productos.filter(
-          (producto) =>  
-                  producto.categoria.toLowerCase().includes('pizzas') )))
-        break;
-      case 'Hamburguesas':
-        dispatch(selectedCarta(Productos.filter(
-          (producto) =>  
-                  producto.categoria.toLowerCase().includes('hamburguesas') )))
-        break;
-      case 'Empanadas':
-        dispatch(selectedCarta(Productos.filter(
-          (producto) =>  
-                  producto.categoria.toLowerCase().includes('empanadas') )))
-        break;
-      case 'Lomos':
-        dispatch(selectedCarta(Productos.filter(
-          (producto) =>  
-                  producto.categoria.toLowerCase().includes('lomos') )))
-        break;
-    
-      default:
-        break;
+  const handleClick = (categoria) => {
+    setActiveCategory(categoria);
+    if (categoria === "All") {
+      // Si se selecciona "All", muestra todos los productos
+      dispatch(selectedCarta(Productos));
+    } else {
+      // Filtra por la categoría seleccionada
+      dispatch(
+        selectedCarta(
+          Productos.filter((producto) =>
+            producto.categoria.toLowerCase().includes(categoria.toLowerCase())
+          )
+        )
+      );
     }
-}
+  };
+
+
+
 
   return (
-    <div className=" d-flex gap-3 container-buttons px-2 d-lg-none">
+
+            <div className="d-flex gap-3 container-buttons px-4 d-lg-none">
+              {/* Botones dinámicos */}
+              {categorias.map((categoria) => (
+                <button
+                  key={categoria}
+                  onClick={() => handleClick(categoria)}
+                  type="button"
+                  className={`btn btn-desactive ${activeCategory === categoria ? "active" : ""}`}
+                >
+                  {categoria}
+                </button>
+              ))}
+            </div>
     
-        <button onClick={handleClick} type='button' className='btn btn-light'>All</button>
-        <button onClick={handleClick} type='button' className='btn btn-light'>Pizzas</button>
-        <button onClick={handleClick} type='button' className='btn btn-light'>Empanadas</button>
-        <button onClick={handleClick} type='button' className='btn btn-light'>Hamburguesas</button>
-        <button onClick={handleClick} type='button' className='btn btn-light'>Lomos</button>    
+  );
+};
 
-    
-    </div>
-   
+export default Buttons;
 
-      
-   
-  )
-}
-
-export default Buttons
