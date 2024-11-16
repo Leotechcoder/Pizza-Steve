@@ -1,6 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import { selectedCarta } from "../Feature/Pizzas/pizzaSlice"
+import '../Pages/carta.css'
 
 
 const Buttons = () => {
@@ -41,7 +42,7 @@ const handleClick = (e) => {
 }
 
   return (
-    <div className=" d-flex gap-3 overflow-x-scroll px-2">
+    <div className=" d-flex gap-3 container-buttons px-2 d-lg-none">
     
         <button onClick={handleClick} type='button' className='btn btn-light'>All</button>
         <button onClick={handleClick} type='button' className='btn btn-light'>Pizzas</button>

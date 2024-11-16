@@ -2,6 +2,13 @@
     background-color: #f7f7f7;
 }
 
+@media (min-width: 930px) {
+    .div-master-payment{
+        height: 90vh;
+    }
+}
+
+
 .div-productos-payment{
     height: 70%;
     margin-top: 30px;
@@ -31,46 +38,47 @@
     height: 500px;
     background-color: rgba(189, 189, 214, 0.1) ;
     overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .article-payment{
-    width: 85%;
-    height: 97px;
-    display: flex;
-    justify-content: space-between;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     margin-top: 20px;
-    padding-right: 10px;
     border-radius: 25px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 }
 .img-art-payment{
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border-radius: 15px 10px 10px 15px;
     margin-left: 10px;
 }
 .span-count-art-payment{
-    width: 35px;
-    height: 35px;
-    margin-bottom: auto;
-    margin-top: 5px;
-    margin-right: 3px;
+    width: 20px;
+    height: 20px;
     text-align: center;
-    font-size: 1.5rem;
+    line-height: 20px;
+    font-size: 1rem;
     background-color: #FFA800;
     border-radius: 50%;
 }
 .div-btn-art-payment{
-    width: 100px;
-    height: 50%;
+    width: 60%;
+    height: 85%;
     display: flex;
+    justify-content: center;
     background: #F7F7F7;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
-    scale: .8;
+    scale: .6;
 }
 .btn-art-payment{
-    scale: .8;
+    scale: .6;
 }
 .btn-delete-art{
     width: 15%;
@@ -81,19 +89,38 @@
     background-color: transparent;
 }
 .svg-delete{
-    scale: 1.8;
+    scale: 1.2;
     margin-top: 10px;
 }
 
 
 .div-btn-pagar-payment{
-    width: 100%;
-    height: 50px;
+    width: 95%;
+    margin: 0 auto;
 }
 .btn-pagar-payment{
     width: 100%;
     height: 100%;
     background-color: #FFA800;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, .2);
+}
+
+
+/*Del article de payment*/
+
+.container-img-art{
+    width: 100%;
+    height: 100%;
+    grid-area: 1 / 1 / 5 / 3;
+}
+.container-title-art{
+    width: 100%;
+    height: 100%;
+    grid-area: 1 / 3 / 2 / 6; 
+}
+.container-price-art{
+    width: 100%;
+    height: 100%;
+    grid-area: 2 / 3 / 3 / 6;
 }

@@ -7,11 +7,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import './article.css'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import './article.css'
 
 export default function LabelBottomNavigation() {
 

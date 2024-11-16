@@ -1,5 +1,4 @@
-import './article.css'
-import './typografy.css'
+import { easeInOut, motion } from "framer-motion";
 import IconButton from '@mui/material/IconButton';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import AddIcon from '@mui/icons-material/Add';
@@ -9,6 +8,9 @@ import { PATH } from '../Routes/PATH';
 import { useDispatch } from 'react-redux';
 import { updateProductCart } from '../Feature/Pizzas/pizzaSlice.js'
 import { addMenu, calculateTotal } from '../Feature/Pizzas/menuSlice.js';
+import './article.css'
+import './typografy.css'
+import './customwh.css'
 
 const Article = ( { producto } ) => {
 
@@ -27,27 +29,37 @@ const handleAddCart = () => {
   dispatch(calculateTotal())
 }
 
+
   return (
-    <article id={id} className='article'>
-        <div className='div-img-article'>
+    <motion.article 
+      id={id} 
+      className='article custom-article'
+      initial={{ opacity: 0.8, scale: 0.8 }} // Estado inicial antes de estar en vista
+      whileInView={{ opacity: 1, scale: 1 }} // Estado al estar en vista al 90%
+      exit={{ opacity: 0.8, scale: 0.8 }} // Estado al salir de la vista
+      transition={{ duration: 0.3 }} // Duración de la animación
+      viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
+      
+      >
+        <div className='div-img-article custom-width-img-article'>
 
           <img className='img-article' src={imagen} alt="Pizza" />
 
         </div>
-        <div className='div-description-article'>
+        <div className='div-description-article custom-div-description-article'>
 
           <div className='div-title-article '>
 
-          <h2 className=' h2-article alegreya'>{nombre}</h2>
+          <h2 className=' h2-article alegreya fs-4'>{nombre}</h2>
           </div>
 
           <div className='div-data-article'>
                 <span 
-                      className='roboto span-price-article fs-3'
+                      className='roboto span-price-article'
                       >
                         ${precio}
                 </span>
-              <span className='w-50 h-100 d-flex'>
+              <span className='w-50 h-100 d-flex w-50 h-100'>
                     <IconButton  color="secondary" aria-label="add an alarm">
                             <AlarmIcon />
                     </IconButton> 
@@ -67,7 +79,7 @@ const handleAddCart = () => {
           
 
         </div>
-    </article>
+    </motion.article>
   )
 }
 

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import './navbarmovil.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectedCarta } from '../Feature/Pizzas/pizzaSlice'
+import './formsearch.css'
 
-const NavbarMovil = () => {
+const FormSearch = () => {
 
 
   const [value, setValue] = useState('')
@@ -33,7 +33,7 @@ const NavbarMovil = () => {
 
   return (
     
-    <nav className="w-75 d-flex justify-content-center navbar bg-body-transparent container-fluid">
+    <nav className="pt-4 ms-auto bg-body-transparent d-none d-md-block">
     <div className="w-100 d-flex">
       <form onSubmit={handleSubmit} className="w-100 d-flex justify-content-end gap-3" role="search">
         <input 
@@ -46,7 +46,7 @@ const NavbarMovil = () => {
         />
 
         <button 
-              className="btn btn-outline-success" 
+              className="btn btn-formsearch" 
               type="submit">
                 Buscar
         </button>
@@ -56,4 +56,4 @@ const NavbarMovil = () => {
   )
 }
 
-export default NavbarMovil
+export default FormSearch

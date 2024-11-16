@@ -1,13 +1,15 @@
 
-
+import '../components/customwh.css'
 import './carta.css'
 import Buttons from "../components/Buttons"
-import NavbarMovil from "../components/NavbarMovil"
 import LabelBottomNavigation from "../components/ButtonNavigation"
 import SectionCarta from "../components/SectionCarta"
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toggleClick } from '../Feature/Pizzas/toglerslice'
+import Navbar from '../components/Navbar'
+import FormSearch from '../components/FormSearch'
+
 
 
 
@@ -31,13 +33,6 @@ return (
     
     <div 
     className="container-carta">
-      
-    {/*Buscador */}
-      <div className="container-navbarmobil">
-
-          <NavbarMovil/>
-      
-      </div>
     
     {/*Botones de navegacion*/}
 
@@ -47,12 +42,12 @@ return (
       
     {/*Contenido de la carta*/}
 
-      <div className="section-carta">
+      <div className="container-fluid gap-4 d-flex" id='section-carta'>
           <SectionCarta/>
       </div>
       
       
-      <div className="container-label-btn">
+      <div className="container-fluid container-label-btn d-lg-none">
            
           <LabelBottomNavigation/>
        

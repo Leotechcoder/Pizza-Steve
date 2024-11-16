@@ -1,12 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom"
-import { PATH } from "../Routes/PATH"
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { calculateTotal, deleteMenu } from "../Feature/Pizzas/menuSlice";
 import Articlepayment from "../components/Articlepayment";
-import '../components/typografy.css'
-import './descripcion.css'
-import './payment.css'
+import './paymentlg.css'
 
 
 
@@ -53,22 +48,20 @@ const handlePay = ()=>{
 }
 
   return (
-    <div className="vw-100 vh-100 d-flex flex-column mt-2 px-2 div-master-payment">
-      <div className='w-100 d-flex justify-content-start mt-4'>
-          <Link to={PATH.carta} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
-          <h2 className='roboto h2-payment '>Su pedido</h2>    
-
-      </div>
-    <div className="w-100 d-flex flex-column gap-2 div-productos-payment">
+    <div className="d-none d-lg-flex flex-column mt-2 px-2 div-master-payment rounded-4">
+      <div className='w-100 mt-2'>
+      <h2 className='roboto fs-5'>Mi pedido</h2>
+    </div>
+    <div className="w-100 d-flex flex-column gap-2">
 
         {/*btn para borrar todo */}
-        <div className="div-remove w-100">
-          <button onClick={handleDelete} className="w-50 btn-remove-payment btn d-flex align-items-center justify-content-end ">
-            <span className="roboto">Remover Todo</span>
+        <div className="">
+          <button onClick={handleDelete} className=" w-100 btn-remove-payment btn d-flex align-items-center justify-content-end ">
+            <span className="roboto fs-6">Borrar Todo</span>
           </button>  
         </div>
         
-        <div className="container-articles mt-2 pt-2">
+        <div className="container-articles-paymentlg">
            {/*recorro el array para mostrar los productos */}
         {producto.map((producto)=>{
             return(<Articlepayment key={producto.id} producto={producto} />)
@@ -77,16 +70,7 @@ const handlePay = ()=>{
         
 
 
-        <section className="d-flex flex-column w-100 mt-auto mb-2">
-
-            <div className="d-flex px-3 justify-content-between">
-                <span>Sub Total</span>
-                <span>${precioTotal}</span>
-            </div>
-            <div className="d-flex px-3 justify-content-between">
-                <span>IVA</span>
-                <span>{iva}%</span>
-            </div>
+        <section className="d-flex flex-column w-100">
             <div className="d-flex px-3 justify-content-between">
                 <span>Total</span>
                 <span>${total}</span>

@@ -19,6 +19,7 @@ const router = createBrowserRouter(
         { path: PATH.inicio, element: <Inicio/> }, 
         {path: PATH.casa, element: <Casa/> },
         { path: PATH.carta, element: <Carta/>},
+        {path: PATH.error, element: <Error/>}
         
         
       ]},

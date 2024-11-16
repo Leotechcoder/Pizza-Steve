@@ -1,11 +1,12 @@
+import { useEffect, useRef } from 'react';
+import { calculateTotal, removeProductMenu, updatecountMenu } from '../Feature/Pizzas/menuSlice';
 import { useDispatch } from 'react-redux';
-import '../Pages/payment.css'
-import './typografy.css'
+import { motion } from "framer-motion";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
-import { useEffect, useRef } from 'react';
-import { calculateTotal, removeProductMenu, updatecountMenu } from '../Feature/Pizzas/menuSlice';
+import '../Pages/payment.css'
+import './typografy.css'
 
 
 
@@ -62,45 +63,70 @@ const deleteProduct = ()=>{
 
 
 
+
+
+
   return (
-    <div className='d-flex align-items-center'>
+    <motion.div 
+        className='d-flex align-items-center'
+        initial={{ opacity: 0.4, scale: 0 }} // Estado inicial antes de estar en vista
+        whileInView={{ opacity: 1, scale: 0.9 }} // Estado al estar en vista al 90%
+        exit={{ opacity: 0.4, scale: 0 }} // Estado al salir de la vista
+        transition={{ duration: .5 }} // Duración de la animación
+        viewport={{ once: false, amount: 0.85}} // Activa whenInView cuando el 85% esté en vista        
+    >
     
     <article id={id} className='article-payment'>
-        <div className='d-flex align-items-center justifiy-content-center'>
+        <div className='d-flex align-items-center container-img-art'>
 
           <img className='img-art-payment' src={imagen} alt="Pizza" />
 
         </div>
-        <div className='d-flex flex-column justify-content-center text-left ps-2'>
+        
+        <div className='w-100 d-flex gap-2 px-1 align-items-center text-left ps-2 container-title-art'>
 
-          <h2 className=' h2-art-payment alegreya'>{nombre}</h2>
-          
-          <div className='d-flex gap-4'>
-              <span 
-                    className='roboto span-price-article fs-5'
-                    >
-                      ${pricecurrent}
-              </span>
-              
-          </div>
-          
+                <h2 className='w-75 fs-6 mt-1'>{nombre}</h2>
+                
+                <div className='d-flex justify-content-end w-25'>
+                    
+                    <span className="roboto span-count-art-payment">{count}</span>
+                </div>
+                
 
         </div>
-        <div className='w-25 d-flex flex-column align-items-center'>
-          <span className="roboto span-count-art-payment">{count}</span>
-          
-          <div className=" div-btn-art-payment">
+              
+        <div className='d-flex justify-content-between align-items-center container-price-art'>
+                        <span 
+                              className=''
+                              >
+                                ${pricecurrent}
+                        </span>
+                    
+                    <div className=" div-btn-art-payment">
 
-            <button onClick={handleSubCount} className="btn btn-art-payment"><RemoveIcon className='remove-icon'/></button>
-            <button onClick={handleAddCount} className="btn btn-art-payment"><AddIcon className='add-icon' /></button>
-          </div>
+                      <button 
+                      onClick={handleSubCount} 
+                      className="btn btn-art-payment"
+                      >
+                        <RemoveIcon className='remove-icon'/>
+                      </button>
+
+                      <button 
+                      onClick={handleAddCount} 
+                      className="btn btn-art-payment"
+                      >
+                        <AddIcon className='add-icon' />
+                      </button>
+
+                    </div>
+                   
         </div>
     </article>
-        <button onClick={deleteProduct} className=' btn-delete-art'>
-            <DeleteForeverOutlinedIcon className='svg-delete'/>
-        </button>
+              <button onClick={deleteProduct} className=' btn-delete-art'>
+                  <DeleteForeverOutlinedIcon className='svg-delete'/>
+              </button>
 
-    </div>
+          </motion.div>
   )
 }
 

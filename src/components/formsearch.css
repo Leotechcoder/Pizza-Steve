@@ -1,0 +1,21 @@
+.input{
+    width: 280px;
+    height: 30px;
+}
+
+.btn-formsearch{
+    height: 30px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #FFA800;
+    font-size: 1rem;
+    border: 1px solid #FFFFFF;
+    line-height: 2px;
+}
+
+.btn-formsearch:hover{
+    background-color: #FFA800;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #000000;
+}

@@ -1,0 +1,14 @@
+.link-sidebar{
+    text-decoration: none;
+}
+
+.item-sidebar:hover{
+    background-color: #FFA800;
+}
+
+.label-sidebar{
+    color: aliceblue;
+}
+.label-sidebar:hover{
+    color: #212529;
+}

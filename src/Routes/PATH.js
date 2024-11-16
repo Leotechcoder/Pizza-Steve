@@ -3,5 +3,6 @@ export const PATH = {
     casa: '/casa',
     carta: '/carta',
     descripcion: '/descripcion',
-    payment: '/pago'
+    payment: '/pago',
+    error: '/error'
 };

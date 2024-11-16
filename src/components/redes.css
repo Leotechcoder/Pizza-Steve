@@ -12,8 +12,6 @@
 }
 
 .social-links img {
-    width: 100px;
-    height: 100px;
     opacity: 0.6;
     transition: opacity 0.3s ease;
 }
@@ -27,14 +25,14 @@
     opacity: 0.8;
 }
 .logo-wha{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     filter: invert(58%) sepia(51%) saturate(660%) hue-rotate(90deg) brightness(100%) contrast(98%);
     transition: opacity 0.3s ease;
 }
 .logo-insta{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     filter:  invert(24%) sepia(77%) saturate(354%) hue-rotate(306deg) brightness(196%) contrast(144%);
     transition: opacity 0.3s ease;
 }

@@ -2,11 +2,11 @@ import './typografy.css'
 
 const Historia = () => {
   return (
-    <div className='w-100 h-100'>
+    <div className='w-90 h-100 container-historia'>
         
-      <h2 className=' caveat h2 text-center text-white'>Nuestra Historia</h2>
+      <h2 className='h-25 caveat h2 text-center text-white fs-3'>Nuestra Historia</h2>
       
-      <p className=" alegreya tipografy-justify px-4 text-white fs-6">
+      <p className=" alegreya px-4 text-white p-historia text-wrap fs-6">
         
         En Pizza Steve, cada pizza cuenta una historia que comienza en la cocina de la abuela. 
         Inspirados por esas recetas caseras que se transmiten de generación en generación, 

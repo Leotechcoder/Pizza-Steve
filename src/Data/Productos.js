@@ -34,7 +34,7 @@ export const Productos = [
 
     {
         id:4,
-        nombre: 'Hamburguesa Completa',
+        nombre: 'Hambur. Completa',
         precio: 1200,
         demora: "30 min",
         imagen: '#',
@@ -44,7 +44,7 @@ export const Productos = [
 
     {
         id:5,
-        nombre: 'Empanadas de carne',
+        nombre: 'Emp. de carne',
         precio: 800,
         demora: "30 min",
         imagen: '#',
@@ -53,7 +53,7 @@ export const Productos = [
     },
     {
         id:6,
-        nombre: 'Empanadas de roquefort',
+        nombre: 'Emp. de roquefort',
         precio: 800,
         demora: "30 min",
         imagen: '#',
@@ -62,7 +62,7 @@ export const Productos = [
     },
     {
         id:7,
-        nombre: 'Empanadas de humita',
+        nombre: 'Emp. de humita',
         precio: 800,
         demora: "30 min",
         imagen: '#',
@@ -71,7 +71,7 @@ export const Productos = [
     },
     {
         id:8,
-        nombre: 'Empanadas de cebolla y queso',
+        nombre: 'Emp. de cebolla y queso',
         precio: 800,
         demora: "30 min",
         imagen: '#',
@@ -80,7 +80,7 @@ export const Productos = [
     },
     {
         id:9,
-        nombre: 'Empanadas de jamon y queso',
+        nombre: 'Emp. de jamon y queso',
         precio: 800,
         demora: "30 min",
         imagen: '#',

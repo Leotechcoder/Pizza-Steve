@@ -1,18 +1,34 @@
 import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import './rootlayout.css'
-import Toggler from "../components/Toggler"
+import SwipeableTemporaryDrawer from "../components/DrawerRight"
 import Footer from "../components/Footer"
+import  TemporaryDrawer  from "../components/Drawerleft"
+import Sidebar2 from "../components/Sidebar2"
 
 const RootLayout = () => {
   return (
-    <>
-        <div className='container-fluid img-fondo-layout container-layout'>
 
-            <div className="container-navbar-toggler">
-                <Navbar/>
-                <Toggler/>
-            </div>
+    <div className="d-flex vw-100 vh-100">
+   
+      <Sidebar2/>
+   
+      <div className='img-fondo-layout container-layout w-100'>
+              
+            <div className="w-100 d-lg-none d-flex justify-content-between ">
+
+              <div className="container-navbar-title">
+              <Navbar/>
+              </div>
+              <div className="container-drawers">
+              <TemporaryDrawer/>
+              <SwipeableTemporaryDrawer/>              
+              </div>
+
+              
+            </div>           
+            
+           
 
             <div className="container-outlet">
                 <Outlet/>
@@ -22,9 +38,9 @@ const RootLayout = () => {
               <Footer/>
             </div>
             
-            </div>
+      </div>
 
-    </>
+    </div>
   )
 }
 
