@@ -71,12 +71,18 @@ const handleAddCart = () => {
                       >
                         ${precio}
                 </span>
-                <button onClick={handleClick} className= ' btn-link-article'>
-                <AddShoppingCart className='icon-article'/>
-                </button>
-              {/* <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
+
+                {window.innerWidth>=980 ? 
+              <button onClick={handleClick} className= ' btn-link-article'>
+              <AddShoppingCart className='icon-article'/>
+              </button>
+              :
+
+              <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
                     <AddShoppingCart className='icon-article'/>
-              </Link> */}
+              </Link>
+              }
+                
               {/* <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button> */}
              
           </div>
