@@ -3,7 +3,7 @@
 export const Productos = [
     {
         id: 1,
-        nombre: 'Margherita',
+        nombre: 'Margarita',
         precio: 1000,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -13,7 +13,7 @@ export const Productos = [
 
     {
         id: 2,
-        nombre: 'Peperoni',
+        nombre: 'Pepperoni',
         precio: 1100,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -34,7 +34,7 @@ export const Productos = [
 
     {
         id:4,
-        nombre: 'Hambur. Completa',
+        nombre: 'Completa',
         precio: 1200,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -44,7 +44,7 @@ export const Productos = [
 
     {
         id:5,
-        nombre: 'Emp. de carne',
+        nombre: 'Carne',
         precio: 800,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -53,7 +53,7 @@ export const Productos = [
     },
     {
         id:6,
-        nombre: 'Emp. de roquefort',
+        nombre: 'Roquefort',
         precio: 800,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -62,7 +62,7 @@ export const Productos = [
     },
     {
         id:7,
-        nombre: 'Emp. de humita',
+        nombre: 'Humita',
         precio: 800,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -71,7 +71,7 @@ export const Productos = [
     },
     {
         id:8,
-        nombre: 'Emp. de cebolla y queso',
+        nombre: 'Cebolla y queso',
         precio: 800,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -80,7 +80,7 @@ export const Productos = [
     },
     {
         id:9,
-        nombre: 'Emp. de jamon y queso',
+        nombre: 'Jamon y queso',
         precio: 800,
         demora: "30 min",
         imagen: '/pizza.png',
@@ -90,7 +90,7 @@ export const Productos = [
 
     {
         id:10,
-        nombre: 'Lomo',
+        nombre: 'Especial',
         precio: 1500,
         demora: "30 min",
         imagen: '/pizza.png',

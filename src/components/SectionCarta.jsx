@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import Article from './Article'
 import Payment from './PaymentLg'
-import Description from '../Pages/Description'
+import Description from '../components/Precarrito'
 import Navbar from "./Navbar"
 import FormSearch from "./FormSearch"
 import '../Pages/carta.css'

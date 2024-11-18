@@ -15,7 +15,6 @@ import './sidebar.css'
 const menuItems = [
   { icon: <HomeIcon className="me-3" size={20}/>, label: 'Inicio', path: PATH.inicio },
   { icon: <SettingsIcon className="me-3" size={20}/>, label: 'Nosotros', path: PATH.casa },
-  { icon: <MailIcon className="me-3" size={20}/>, label: 'Nuestra carta', path: PATH.carta },
   { icon: <LocalOfferIcon className="me-3" size={20}/>, label: 'Ofertas', path: PATH.error},
   { icon: <LocationOnIcon className="me-3" size={20}/>, label: 'Local', path: PATH.error },
 ];

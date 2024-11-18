@@ -29,7 +29,7 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box sx={{ width: 250,}} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {['Inicio', 'Nosotros', 'Nuestra Carta'].map((text, index) => (
+        {['Inicio', 'Nosotros'].map((text, index) => (
           <ListItem key={text} disablePadding>
             {
               text === 'Inicio'? 
@@ -41,7 +41,6 @@ export default function TemporaryDrawer() {
                   <ListItemText primary={text} />
                 </ListItemButton>
                 </Link> : 
-                          text === 'Nosotros'? 
                           <Link className='links-drawer' to={PATH.casa}>
                           <ListItemButton>
                             <ListItemIcon>
@@ -49,15 +48,7 @@ export default function TemporaryDrawer() {
                             </ListItemIcon>
                             <ListItemText primary={text} />
                           </ListItemButton>
-                          </Link> :
-                                <Link className='links-drawer' to={PATH.carta}>
-                                <ListItemButton>
-                                  <ListItemIcon>
-                                  {index === 0 ? <HomeIcon className='svg-drawer'/> : index === 1 ? <GroupsIcon className='svg-drawer'/> : <MailIcon className='svg-drawer'/> }
-                                  </ListItemIcon>
-                                  <ListItemText primary={text} />
-                                </ListItemButton>
-                                </Link>
+                          </Link> 
           }
           </ListItem>
         ))}
@@ -68,7 +59,7 @@ export default function TemporaryDrawer() {
           <ListItem key={text} disablePadding>
             {
               text === 'Recientes'? 
-                <Link className='links-drawer' to={PATH.carta}>
+                <Link className='links-drawer' to={PATH.inicio}>
                 <ListItemButton>
                   <ListItemIcon>
                   {index === 0 ? <RestoreIcon className='svg-drawer'/> : index === 1 ? <FavoriteIcon className='svg-drawer'/> : <LocationOnIcon className='svg-drawer'/>}
@@ -77,7 +68,7 @@ export default function TemporaryDrawer() {
                 </ListItemButton>
                 </Link> : 
                           text === 'Favoritos'? 
-                          <Link className='links-drawer' to={PATH.carta}>
+                          <Link className='links-drawer' to={PATH.inicio}>
                           <ListItemButton>
                             <ListItemIcon>
                             {index === 0 ? <RestoreIcon className='svg-drawer'/> : index === 1 ? <FavoriteIcon className='svg-drawer'/> : <LocationOnIcon className='svg-drawer'/>}
@@ -85,7 +76,7 @@ export default function TemporaryDrawer() {
                             <ListItemText primary={text} />
                           </ListItemButton>
                           </Link> :
-                                <Link className='links-drawer' to={PATH.carta}>
+                                <Link className='links-drawer' to={PATH.inicio}>
                                 <ListItemButton>
                                   <ListItemIcon>
                                   {index === 0 ? <RestoreIcon className='svg-drawer'/> : index === 1 ? <FavoriteIcon className='svg-drawer'/> : <LocationOnIcon className='svg-drawer'/>}
