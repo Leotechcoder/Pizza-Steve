@@ -6,7 +6,7 @@ export const Productos = [
         nombre: 'Margherita',
         precio: 1000,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Pizza de masa fina, toppings: margherita, mozzarella, cebolla, pimiento y oregano.',
         categoria: 'Pizzas'
     },
@@ -16,7 +16,7 @@ export const Productos = [
         nombre: 'Peperoni',
         precio: 1100,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Pizza de masa fina, toppings: peperoni, mozzarella, cebolla, pimiento y oregano.',
         categoria: 'Pizzas'
     },
@@ -26,7 +26,7 @@ export const Productos = [
         nombre: 'Hawaiiana',
         precio: 1200,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Pizza de masa fina, toppings: hawaiana, mozzarella, cebolla, pimiento y oregano.',
         categoria: 'Pizzas'
     },
@@ -37,7 +37,7 @@ export const Productos = [
         nombre: 'Hambur. Completa',
         precio: 1200,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Hmburguesa de masa fina, toppings:lechuga, tomate, carne, huevo, jamon cocido, mozzarella, cebolla, pimiento y oregano.',
         categoria: 'Hamburguesas'
     },
@@ -47,7 +47,7 @@ export const Productos = [
         nombre: 'Emp. de carne',
         precio: 800,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Empanada de masa fina, toppings: lechuga, tomate, cebolla, pimiento y oregano.',
         categoria: 'Empanadas'
     },
@@ -56,7 +56,7 @@ export const Productos = [
         nombre: 'Emp. de roquefort',
         precio: 800,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Empanada de masa fina, toppings: lechuga, tomate, cebolla, pimiento y oregano.',
         categoria: 'Empanadas'
     },
@@ -65,7 +65,7 @@ export const Productos = [
         nombre: 'Emp. de humita',
         precio: 800,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Empanada de masa fina, toppings: lechuga, tomate, cebolla, pimiento y oregano.',
         categoria: 'Empanadas'
     },
@@ -74,7 +74,7 @@ export const Productos = [
         nombre: 'Emp. de cebolla y queso',
         precio: 800,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Empanada de masa fina, toppings: lechuga, tomate, cebolla, pimiento y oregano.',
         categoria: 'Empanadas'
     },
@@ -83,7 +83,7 @@ export const Productos = [
         nombre: 'Emp. de jamon y queso',
         precio: 800,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Empanada de masa fina, toppings: lechuga, tomate, cebolla, pimiento y oregano.',
         categoria: 'Empanadas'
     },
@@ -93,7 +93,7 @@ export const Productos = [
         nombre: 'Lomo',
         precio: 1500,
         demora: "30 min",
-        imagen: '/pizza.jpg',
+        imagen: '/pizza.png',
         descripcion: 'Lomo de ternera de masa fina, toppings: lechuga, tomate, carne, huevo, jamon cocido, mozzarella, cebolla, pimiento y oregano.',
         categoria: 'Lomos'
     },

@@ -12,7 +12,7 @@ import './article.css'
 import './typografy.css'
 import './customwh.css'
 
-const Article = ( { producto } ) => {
+const Article = ( { producto, setDescription } ) => {
 
   const dispatch = useDispatch()
 
@@ -21,6 +21,7 @@ const { id, nombre, precio, demora, imagen } = producto;
 //abre el detalle
 const handleClick = ()=>{
      dispatch(updateProductCart(producto))
+     setDescription(true)
 }
 
 const handleAddCart = () => {
@@ -54,26 +55,29 @@ const handleAddCart = () => {
           </div>
 
           <div className='div-data-article'>
-                <span 
-                      className='span-price-article'
-                      >
-                        ${precio}
-                </span>
               <span className='span-alarm-art'>
                     <IconButton  color="secondary" aria-label="add an alarm">
                             <AlarmIcon className="icon-alarm"/>
                     </IconButton> 
-                    <span className='mt-1'>
+                    <span className=''>
                           {demora}
                     </span>
               </span>
           </div>
           <div className='div-btn-article'>
              
-              <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
-                    {/* <AddIcon className='icon-article'/> */} Info
-              </Link>
-              <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button>
+                <span 
+                      className='span-price-article'
+                      >
+                        ${precio}
+                </span>
+                <button onClick={handleClick} className= ' btn-link-article'>
+                <AddShoppingCart className='icon-article'/>
+                </button>
+              {/* <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
+                    <AddShoppingCart className='icon-article'/>
+              </Link> */}
+              {/* <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button> */}
              
           </div>
           
