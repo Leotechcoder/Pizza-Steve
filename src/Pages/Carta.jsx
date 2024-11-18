@@ -7,8 +7,6 @@ import SectionCarta from "../components/SectionCarta"
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { toggleClick } from '../Feature/Pizzas/toglerslice'
-import Navbar from '../components/Navbar'
-import FormSearch from '../components/FormSearch'
 
 
 

@@ -1,13 +1,11 @@
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import IconButton from '@mui/material/IconButton';
 import AlarmIcon from '@mui/icons-material/Alarm';
-import AddIcon from '@mui/icons-material/Add';
 import  AddShoppingCart from '@mui/icons-material/AddShoppingCart'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH';
 import { useDispatch } from 'react-redux';
 import { updateProductCart } from '../Feature/Pizzas/pizzaSlice.js'
-import { addMenu, calculateTotal } from '../Feature/Pizzas/menuSlice.js';
 import './article.css'
 import './typografy.css'
 import './customwh.css'
@@ -20,15 +18,20 @@ const { id, nombre, precio, demora, imagen } = producto;
 
 //abre el detalle
 const handleClick = ()=>{
-     dispatch(updateProductCart(producto))
-     setDescription(true)
+  if(window.innerWidth >= 980){
+
+    dispatch(updateProductCart(producto))
+    setDescription(true)
+  }else{
+    dispatch(updateProductCart(producto))
+  }
 }
 
-const handleAddCart = () => {
-  let count = 1
-  dispatch(addMenu({id, nombre, imagen, count, precio }))
-  dispatch(calculateTotal())
-}
+// const handleAddCart = () => {
+//   let count = 1
+//   dispatch(addMenu({id, nombre, imagen, count, precio }))
+//   dispatch(calculateTotal())
+// }
 
 
   return (

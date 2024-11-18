@@ -14,7 +14,7 @@ import { addMenu, calculateTotal } from '../Feature/Pizzas/menuSlice';
 import SelectCart from "../components/SelectCart"
 
 
-const Description = ({setDescription}) => {
+const Description = ({ setDescription }) => {
 
 
 //para controlar el valor de la key "like"
