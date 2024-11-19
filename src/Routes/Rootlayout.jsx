@@ -22,7 +22,7 @@ const RootLayout = () => {
               </div>
               <div className="container-drawers">
               <TemporaryDrawer/>
-              <SwipeableTemporaryDrawer/>              
+              {/* <SwipeableTemporaryDrawer/>               */}
               </div>
 
               

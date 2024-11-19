@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckIcon from "@mui/icons-material/Check";
 
-export default function SelectCart({ producto }) {
+export default function SelectCart({ producto, countRef }) {
   const { categoria, nombre } = producto;
+
 
   // Estados
   const [size, setSize] = useState("");
@@ -59,11 +60,11 @@ export default function SelectCart({ producto }) {
 
   // useEffect para inicializar valores
   useEffect(() => {
-    if(categoria === 'Pizzas'){
+    if (categoria === "Pizzas") {
       setType(""); // Tipo predeterminado basado en el nombre del producto
-    setSize(""); // Reiniciar tamaño
-    setToppings([]); // Limpiar toppings
-    }else{
+      setSize(""); // Reiniciar tamaño
+      setToppings([]); // Limpiar toppings
+    } else {
       setType(nombre); // Tipo predeterminado basado en el nombre del producto
       setSize(""); // Reiniciar tamaño
       setToppings([]); // Limpiar toppings
@@ -79,8 +80,23 @@ export default function SelectCart({ producto }) {
     );
   };
 
+  // Manejo del tamaño y actualización de `countRef`
+  const handleSize = (selectedSize) => {
+    setSize(selectedSize);
+
+    if (categoria === "Empanadas") {
+      if (selectedSize === "4 Unidades") {
+        countRef.current = 4;
+      } else if (selectedSize === "1/2 Docena") {
+        countRef.current = 6;
+      } else if (selectedSize === "1 Docena") {
+        countRef.current = 12;
+      }
+    }
+  };
+
   return (
-    <div className="bg-light d-flex align-items-center justify-content-center p-2">
+    <div className="bg-light vh-50 d-flex align-items-center justify-content-center p-2">
       <div
         className="bg-white rounded px-2 py-1 shadow w-100"
         style={{ maxWidth: "500px" }}
@@ -97,7 +113,7 @@ export default function SelectCart({ producto }) {
                 className={`btn btn-sm flex-fill mx-1 ${
                   size === s ? "btn-danger text-white" : "btn-light"
                 }`}
-                onClick={() => setSize(s)}
+                onClick={() => handleSize(s)}
               >
                 {s}
               </button>
@@ -179,7 +195,7 @@ export default function SelectCart({ producto }) {
           </p>
           {categoria === "Empanadas" ? (
             <p>
-              <strong>Cantidad:</strong> {size || "No seleccionado"}
+              <strong>Cantidad:</strong> {countRef.current || "No seleccionado"}
             </p>
           ) : (
             <p>

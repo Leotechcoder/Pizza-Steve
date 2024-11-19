@@ -18,3 +18,33 @@
     border: .8px solid white;
     border-radius:8px;
 } 
+
+.btn.active2 {
+  height: 40px;
+  background-color: #6b2b07;
+  color: white;
+  border-radius:10px;
+  border: .8px solid black;
+  scale: 0.95;
+  transition: background-color 0.3s, color 0.3s, scale 0.3s;
+  font-size: .9rem;
+  font-weight: bolder;
+}
+
+.btn-desactive2{
+  height: 40px;
+  background-color: #c8cccf;
+  color: #343a40;
+  scale: 0.85;
+  font-size: .9rem;
+  font-weight:600;
+  border: .8px solid white;
+  border-radius:8px;
+} 
+
+.btn-desactive2:hover{
+  background-color: #FFA800;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #000000;
+}

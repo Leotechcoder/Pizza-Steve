@@ -1,6 +1,5 @@
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
-import MailIcon from '@mui/icons-material/Mail';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useState } from 'react';
@@ -29,13 +28,13 @@ const Sidebar = () => {
 
   return (
     <div 
-      className={`d-none d-lg-flex flex-column flex-shrink-0 bg-dark text-white transition ${isOpen ? 'w-250px' : 'w-80px'}`}
+      className={`d-none d-lg-flex flex-column flex-shrink-0 bg-dark text-white transition ${isOpen ? 'w-150px' : 'w-80px'}`}
       style={{ transition: 'width 0.3s ease' }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="d-flex flex-column h-100">
-        <ul className=" flex-column mb-auto p-2">
+      <div className="d-flex flex-column justify-content-between h-100">
+        <ul className="d-flex flex-column justify-content-center h-75 gap-4 p-2">
           {menuItems.map((item) => (
             
             <Link key={item.label} to={item.path} className='link-sidebar'>

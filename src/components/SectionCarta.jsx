@@ -3,10 +3,10 @@ import Article from './Article'
 import Payment from './PaymentLg'
 import Description from '../components/Precarrito'
 import Navbar from "./Navbar"
-import FormSearch from "./FormSearch"
 import '../Pages/carta.css'
 import './customwh.css'
 import { useState } from "react"
+import Buttons from "./Buttons2"
 
 const SectionCarta = () => {
 const { selectedCarta }  = useSelector(store=>store.pizzas)
@@ -22,11 +22,12 @@ const notfoundProduct = {
   return (
     <>
      {/*Nav-bar*/}
-     <div className='d-none d-lg-flex w-100 justify-content-around'>
+     <div className='d-none d-lg-flex w-100 justify-content-evenly'>
           <div className='container-productos'>
-                    <div className=" d-none d-lg-flex">
+                    <div className=" d-none d-lg-flex justify-content-between align-items-center">
                                 <Navbar/>
-                                <FormSearch/> 
+                                {/* <FormSearch/>  */}
+                                <Buttons/>
                     </div>
 
                   <div className="section-carta px-3 px-md-2">

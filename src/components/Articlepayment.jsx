@@ -69,10 +69,10 @@ const deleteProduct = ()=>{
   return (
     <motion.div 
         className='d-flex align-items-center'
-        initial={{ opacity: 0.4, scale: 0 }} // Estado inicial antes de estar en vista
+        initial={{ opacity: 0.7, scale: 0.85 }} // Estado inicial antes de estar en vista
         whileInView={{ opacity: 1, scale: 0.9 }} // Estado al estar en vista al 90%
-        exit={{ opacity: 0.4, scale: 0 }} // Estado al salir de la vista
-        transition={{ duration: .5 }} // Duración de la animación
+        exit={{ opacity: 0.7, scale: 0.85 }} // Estado al salir de la vista
+        transition={{ duration: 0.3 }} // Duración de la animación
         viewport={{ once: false, amount: 0.85}} // Activa whenInView cuando el 85% esté en vista        
     >
     
@@ -85,7 +85,7 @@ const deleteProduct = ()=>{
         
         <div className='w-100 d-flex gap-2 px-1 align-items-center text-left ps-2 container-title-art'>
 
-                <h2 className='w-75 fs-6 mt-1'>{nombre}</h2>
+                <h2 className='w-75 font-title-article mt-1'>{nombre}</h2>
                 
                 <div className='d-flex justify-content-end w-25'>
                     

@@ -42,7 +42,8 @@
 }
 
 .article-payment{
-    width: 80%;
+    width: 280px;
+    height: 80px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -51,6 +52,11 @@
     margin-top: 20px;
     border-radius: 25px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.font-title-article{
+    /*Voy a hacer un font-size con clamp para que se adapte a los distintos dispositivos mobil*/
+    font-size: clamp(10px, 1vw + .7rem, 18px);
 }
 .img-art-payment{
     width: 75px;

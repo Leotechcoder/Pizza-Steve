@@ -14,7 +14,7 @@ const Article = ( { producto, setDescription } ) => {
 
   const dispatch = useDispatch()
 
-const { id, nombre, precio, demora, imagen } = producto; 
+const { id, nombre, precio, demora, imagen, categoria } = producto; 
 
 //abre el detalle
 const handleClick = ()=>{
@@ -38,9 +38,9 @@ const handleClick = ()=>{
     <motion.article 
       id={id} 
       className='article custom-article'
-      initial={{ opacity: 0.7, scale: 0.7 }} // Estado inicial antes de estar en vista
+      initial={{ opacity: 0.8, scale: 0.85 }} // Estado inicial antes de estar en vista
       whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
-      exit={{ opacity: 0.7, scale: 0.7 }} // Estado al salir de la vista
+      exit={{ opacity: 0.8, scale: 0.85 }} // Estado al salir de la vista
       transition={{ duration: 0.3 }} // Duración de la animación
       viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
       
@@ -54,7 +54,20 @@ const handleClick = ()=>{
 
           <div className='div-title-article '>
 
-          <h2 className=' h2-article alegreya fs-5'>{nombre}</h2>
+            {categoria === 'Pizzas' ? 
+                <h2 className=' h2-article alegreya'>Pizza {nombre}</h2>
+                :
+                categoria === 'Hamburguesas'?
+                  <h2 className=' h2-article alegreya'>Hamburguesa {nombre}</h2>
+                :
+                categoria === 'Empanadas'?
+                  <h2 className=' h2-article alegreya'>Empanadas de {nombre}</h2>
+                :
+                  <h2 className=' h2-article alegreya'>Lomo {nombre}</h2>
+               
+            }
+
+          
           </div>
 
           <div className='div-data-article'>

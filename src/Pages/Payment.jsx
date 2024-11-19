@@ -39,7 +39,7 @@ const handlePay = ()=>{
   
   lista()
   setTimeout( () =>{
-    const number = "+5492984211700";
+    const number = "+5492984307550";
     const mensaje = pedido;
     const Total =  `Con un total de: $${total}.`
     
@@ -55,7 +55,7 @@ const handlePay = ()=>{
   return (
     <div className="vw-100 vh-100 d-flex flex-column mt-2 px-2 div-master-payment">
       <div className='w-100 d-flex justify-content-start mt-4'>
-          <Link to={PATH.carta} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
+          <Link to={PATH.inicio} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
           <h2 className='roboto h2-payment '>Su pedido</h2>    
 
       </div>

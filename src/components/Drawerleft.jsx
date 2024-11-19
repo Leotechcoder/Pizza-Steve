@@ -54,7 +54,7 @@ export default function TemporaryDrawer() {
         ))}
       </List>
       <Divider />
-      <List>
+      {/* <List>
         {['Recientes', 'Favoritos', 'Ubicación'].map((text, index) => (
           <ListItem key={text} disablePadding>
             {
@@ -87,7 +87,7 @@ export default function TemporaryDrawer() {
           }
           </ListItem>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 

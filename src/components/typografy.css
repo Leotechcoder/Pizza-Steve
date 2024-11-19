@@ -99,6 +99,17 @@
 }
 
 .h2-article{
-  font-size: clamp(20px, 2vw + 1rem, 27px);
+  font-size: clamp(1.2rem, 1.4rem, 1.6rem);
   color: var(--color-azul-secundario);
+  text-align: center;
+}
+@media (min-width: 437px) {
+  .h2-article{
+    font-size: clamp(.9rem, 1rem, 1.5rem);
+    padding: 0px 1rem;
+  }
+}
+
+.p-footer{
+  font-size: .8rem;
 }
