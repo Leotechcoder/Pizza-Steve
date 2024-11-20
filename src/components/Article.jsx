@@ -5,12 +5,12 @@ import  AddShoppingCart from '@mui/icons-material/AddShoppingCart'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH';
 import { useDispatch } from 'react-redux';
-import { updateProductCart } from '../Feature/Pizzas/pizzaSlice.js'
+import { newvisual, updateProductCart } from '../Feature/Pizzas/pizzaSlice.js'
 import './article.css'
 import './typografy.css'
 import './customwh.css'
 
-const Article = ( { producto, setDescription } ) => {
+const Article = ( { producto } ) => {
 
   const dispatch = useDispatch()
 
@@ -21,7 +21,7 @@ const handleClick = ()=>{
   if(window.innerWidth >= 980){
 
     dispatch(updateProductCart(producto))
-    setDescription(true)
+    dispatch(newvisual(true))
   }else{
     dispatch(updateProductCart(producto))
   }

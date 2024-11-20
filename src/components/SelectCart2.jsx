@@ -1,11 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CheckIcon from "@mui/icons-material/Check";
+import { useDispatch, useSelector } from "react-redux";
+import { newCount } from "../Feature/Pizzas/pizzaSlice";
+import ButtonsSelectCart from "./ButtonsSelectCart";
 
-export default function SelectCart({ producto, countRef }) {
+export default function SelectCart({ producto }) {
   const { categoria, nombre } = producto;
-
-
+  
+  const { count } = useSelector(store=>store.pizzas)
+  const dispatch = useDispatch()
+  
   // Estados
   const [size, setSize] = useState("");
   const [type, setType] = useState(nombre);
@@ -86,14 +91,16 @@ export default function SelectCart({ producto, countRef }) {
 
     if (categoria === "Empanadas") {
       if (selectedSize === "4 Unidades") {
-        countRef.current = 4;
+        dispatch(newCount(4))
       } else if (selectedSize === "1/2 Docena") {
-        countRef.current = 6;
+        dispatch(newCount(6))
       } else if (selectedSize === "1 Docena") {
-        countRef.current = 12;
+        dispatch(newCount(12))
       }
     }
   };
+
+  const tamaños = currentOptions.sizes;
 
   return (
     <div className="bg-light vh-50 d-flex align-items-center justify-content-center p-2">
@@ -102,24 +109,10 @@ export default function SelectCart({ producto, countRef }) {
         style={{ maxWidth: "500px" }}
       >
         {/* Tamaño o Cantidad */}
-        <div className="mb-4">
-          <label className="form-label">
-            {categoria === "Empanadas" ? "Cantidad" : "Tamaño"}
-          </label>
-          <div className="d-flex justify-content-between">
-            {currentOptions.sizes.map((s) => (
-              <button
-                key={s}
-                className={`btn btn-sm flex-fill mx-1 ${
-                  size === s ? "btn-danger text-white" : "btn-light"
-                }`}
-                onClick={() => handleSize(s)}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
+        
+       {   <ButtonsSelectCart tamaños={tamaños} categoria={categoria}  size={size} handleSize={handleSize}/>
+
+        }
 
         {/* Tipo (Solo seleccionable para Pizzas) */}
         {categoria === "Pizzas" && (
@@ -195,7 +188,7 @@ export default function SelectCart({ producto, countRef }) {
           </p>
           {categoria === "Empanadas" ? (
             <p>
-              <strong>Cantidad:</strong> {countRef.current || "No seleccionado"}
+              <strong>Cantidad:</strong> {count || "No seleccionado"}
             </p>
           ) : (
             <p>

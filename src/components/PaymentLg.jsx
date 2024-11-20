@@ -80,7 +80,7 @@ const handlePay = ()=>{
     
     <div className="d-flex flex-column gap-2 div-btn-pagar-payment my-4">
         {/*btn para pagar */}
-        <button onClick={handlePay} className="btn-pagar-payment btn roboto">Pagar</button>
+        <button onClick={handlePay} className="btn-pagar-payment btn-pagar-payment-lg btn roboto">Pagar</button>
     </div>
 
     </div>

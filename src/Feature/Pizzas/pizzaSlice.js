@@ -8,7 +8,11 @@ const initialState = {
     selectedCarta: Productos ,
     categoria: ['Pizzas', 'Empanadas', 'Hamburguesas', 'Lomos'],
     loading: false,
-    error: null,    
+    error: null,
+    count: 1,
+    display: true, 
+    visual: false,
+    tamaño:"",
 }
 
 const pizzas = createSlice(
@@ -46,12 +50,31 @@ const pizzas = createSlice(
             updateProductCart: (state, action) => {
                 state.productCart = action.payload;
             },
-
+            incrementCount: (state) => {
+                state.count += 1; // Incrementar el contador global
+            },
+            decrementCount: (state) => {
+                if (state.count > 1) {
+                  state.count -= 1; // Decrementar el contador global (con validación)
+                }
+            },
+            newCount: (state, action)=>{
+                state.count = action.payload; // Cambiar el contador global a un nuevo valor
+            },
+            toggleDisplay: (state) => {
+                state.display =!state.display; // Cambiar el estado de display
+            },
+            newvisual: (state, action) => {
+                state.visual = action.payload; // Cambiar el estado de visual
+            },
+            setTamaño: (state, action) => {
+                state.tamaño = action.payload;
+            },
 
         },
     }
 )
 
-export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateProductCart, updateLike } = pizzas.actions;
+export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateProductCart, updateLike, incrementCount, decrementCount, newCount, toggleDisplay, newvisual, setTamaño } = pizzas.actions;
 
 export default pizzas.reducer;
