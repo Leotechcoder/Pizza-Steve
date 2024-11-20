@@ -73,23 +73,7 @@
     filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.5));
     transition: filter 0.7s ease;
 }
-.img-pizza-normal{
-  transform: scale(1) rotate(90deg);
-  transition: transform 1.5s ease-in-out;
-}
 
-.img-pizza-pequeña {
-  transform: scale(0.7) rotate(-180deg);
-  transition: transform 0.7s ease-in-out;
-}
-.img-pizza-mediana{
-  transform: scale(0.9) rotate(0deg);
-  transition: transform 0.7s ease-in-out;
-}
-.img-pizza-grande{
-  transform: scale(1.2) rotate(180deg);
-  transition: transform 0.7s ease-in-out;
-}
 
 .span-description{
     width: 100%;
