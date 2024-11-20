@@ -44,9 +44,9 @@ const AddCart = () => {
   );
 
   return (
-    <div className="d-flex justify-content-evenly p-2 mb-3">
+    <div className="d-flex justify-content-center gap-5 mb-3">
       {/* Precio total */}
-      <span className="ms-5 span-price roboto">${precio * count}</span>
+      <span className="ms-4 span-price roboto">${precio * count}</span>
 
       {/* Botón "Agregar al carrito" */}
       {isMobile ? (

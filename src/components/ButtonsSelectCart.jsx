@@ -39,7 +39,7 @@ const ButtonsSelectCart = ({ categoria, tamaños, handleSize }) => {
         {tamaños.map((tamaño) => (
           <button
             key={tamaño}
-            className={`btn btn-sm flex-fill mx-1 ${
+            className={`col-2 text-center btn btn-sm flex-fill mx-1 ${
               
               selectedSize === tamaño ? "btn-danger text-white" : "btn-light"
             }`}

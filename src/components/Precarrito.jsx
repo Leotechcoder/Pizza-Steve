@@ -91,21 +91,21 @@ const Description = () => {
         {/* Descripción del producto */}
         <div className="container-description d-flex flex-column justify-content-center text-center">
           {categoria === 'Empanadas' ? 
-          <h1 className="fs-6 mt-4">{categoria} de {nombre}</h1> :
+          <h1 className="fs-6 my-4">{categoria} de {nombre}</h1> :
           
           categoria === 'Pizzas' ? 
-          <h1 className="fs-5 mt-4">Pizza {nombre}</h1> :
+          <h1 className="fs-5 my-4">Pizza {nombre}</h1> :
 
           categoria === 'Hamburguesas'?
-          <h1 className="fs-5 mt-4">Hamburguesa {nombre}</h1> :
+          <h1 className="fs-5 my-4">Hamburguesa {nombre}</h1> :
 
-          <h1 className="fs-5 mt-4">Lomo {nombre}</h1>
+          <h1 className="fs-5 my-4">Lomo {nombre}</h1>
           }
           {categoria === 'Pizzas'? tamaño === 'Pequeña'? 
                   <motion.img
                   initial={{ scale: 1, rotate: 0 }}
                   animate={{ scale: 0.7, rotate: -180 }} 
-                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   className="img-pizza"
                   src={imagen}
                   alt={nombre}
@@ -114,8 +114,8 @@ const Description = () => {
                   tamaño === 'Mediana'?
                   <motion.img
                         initial={{ scale: 0.7, rotate: -180 }} /* La imagen comienza más pequeña y totalmente transparente */
-                        animate={{ scale: 1, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
-                        transition={{ duration: 0.7, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        animate={{ scale: 0.9, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}
                         alt={nombre}
@@ -123,17 +123,26 @@ const Description = () => {
                   :
                   <motion.img
                         initial={{ scale: 1, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
-                        animate={{ scale: 1.2, rotate: 180 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        animate={{ scale: 1.1, rotate: 180 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
                         transition={{ duration: 0.5, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}
                         alt={nombre}
                       />
-                  : categoria === 'Hamburguesas'?
+                  : categoria === 'Hamburguesas'? tamaño === 'Individual'?
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
-                        animate={{ opacity: 1, scale: 1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
-                        transition={{ duration: 0.5, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        animate={{ opacity: 1, scale: 0.85, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
+                  :
+                  <motion.img
+                        initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ opacity: 1, scale: 1.1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}
                         alt={nombre}
@@ -142,15 +151,24 @@ const Description = () => {
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: -180 }} /* La imagen comienza más pequeña y totalmente transparente */
                         animate={{ opacity: 1, scale: 0.8, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.2, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
+                  : categoria === 'Lomos'? tamaño === 'Individual'? 
+                  <motion.img
+                        initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ opacity: 1, scale: 0.85, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
                         transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}
                         alt={nombre}
                       />
-                  : categoria === 'Lomos'?
+                  : tamaño === 'Familiar'? 
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
-                        animate={{ opacity: 1, scale: 0.91, rotate:360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        animate={{ opacity: 1, scale: 1.1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
                         transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}
@@ -158,8 +176,17 @@ const Description = () => {
                       />
                   :
                   <motion.img
-                        initial={{ opacity: 0, scale: 0, rotate: -90 }} /* La imagen comienza más pequeña y totalmente transparente */
-                        animate={{ opacity: 1, scale: 0.9, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ opacity: 1, scale: 1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
+                  :
+                  <motion.img
+                        initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ opacity: 1, scale: 1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
                         transition={{ duration: 0.3, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
                         className="img-pizza"
                         src={imagen}

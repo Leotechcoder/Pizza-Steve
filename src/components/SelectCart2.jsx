@@ -37,7 +37,7 @@ export default function SelectCart({ producto }) {
       toppings: [],
     },
     Hamburguesas: {
-      sizes: ["Simple", "Doble", "Triple"],
+      sizes: ["Individual", "Familiar"],
       types: [nombre],
       toppings: [
         { name: "Queso", icon: "🧀" },
