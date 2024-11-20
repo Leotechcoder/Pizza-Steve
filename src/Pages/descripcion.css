@@ -1,6 +1,6 @@
 
 .div-master-sec-carta{
-  height: 100vh;
+  height: 100%;
   gap: 2rem;
   border-radius: 20px;
   background-color: #f7f7f7;
@@ -70,8 +70,12 @@
     width: 100%;
     height: 100px;
     object-fit: contain;
-    transition: filter 0.7s ease;
     filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.5));
+    transition: filter 0.7s ease;
+}
+.img-pizza-normal{
+  transform: scale(1) rotate(90deg);
+  transition: transform 1.5s ease-in-out;
 }
 
 .img-pizza-pequeña {

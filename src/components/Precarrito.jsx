@@ -2,7 +2,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Link } from "react-router-dom";
 import { PATH } from "../Routes/PATH";
-
+import{ motion } from "framer-motion"
 
 import { useDispatch, useSelector } from "react-redux";
 import { newCount, newvisual, updateLike } from "../Feature/Pizzas/pizzaSlice";
@@ -102,14 +102,42 @@ const Description = () => {
           <h1 className="fs-5 mt-4">Lomo {nombre}</h1>
           }
           {categoria === 'Pizzas'? tamaño === 'Pequeña'? 
-                  <img className="img-pizza img-pizza-pequeña" src={imagen} alt={nombre} />
+                  <motion.img
+                  initial={{ scale: 1, rotate: 0 }}
+                  animate={{ scale: 0.7, rotate: -180 }} 
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  className="img-pizza"
+                  src={imagen}
+                  alt={nombre}
+                />
                   :
                   tamaño === 'Mediana'?
-                  <img className="img-pizza img-pizza-mediana" src={imagen} alt={nombre} />
+                  <motion.img
+                        initial={{ scale: 0.7, rotate: -180 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ scale: 1, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.7, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
                   :
-                  <img className="img-pizza img-pizza-grande" src={imagen} alt={nombre} />
+                  <motion.img
+                        initial={{ scale: 1, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ scale: 1.2, rotate: 180 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.5, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
                   :
-                  <img className="img-pizza" src={imagen} alt={nombre} />
+                  <motion.img
+                        initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
+                        animate={{ opacity: 1, scale: 1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
+                        transition={{ duration: 0.5, ease: "easeOut" }} /* Ajuste del tiempo y suavidad de la animación */
+                        className="img-pizza"
+                        src={imagen}
+                        alt={nombre}
+                      />
                 
                 }
           
