@@ -104,7 +104,7 @@ const Description = () => {
 
           <h1 className="fs-5 my-4">Lomo {nombre}</h1>
           }
-          {categoria === 'Pizzas'? tamaño === 'Pequeña'? 
+          {categoria === 'Pizzas'? tamaño.tamaño === 'Pequeña'? 
                   <motion.img
                   initial={{ scale: 1, rotate: 0 }}
                   animate={{ scale: 0.7, rotate: -180 }} 
@@ -114,7 +114,7 @@ const Description = () => {
                   alt={nombre}
                 />
                   :
-                  tamaño === 'Mediana'?
+                  tamaño.tamaño === 'Mediana'?
                   <motion.img
                         initial={{ scale: 0.7, rotate: -180 }} /* La imagen comienza más pequeña y totalmente transparente */
                         animate={{ scale: 0.9, rotate: 0 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
@@ -132,7 +132,7 @@ const Description = () => {
                         src={imagen}
                         alt={nombre}
                       />
-                  : categoria === 'Hamburguesas'? tamaño === 'Individual'?
+                  : categoria === 'Hamburguesas'? tamaño.tamaño === 'Individual'?
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
                         animate={{ opacity: 1, scale: 0.85, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
@@ -159,7 +159,7 @@ const Description = () => {
                         src={imagen}
                         alt={nombre}
                       />
-                  : categoria === 'Lomos'? tamaño === 'Individual'? 
+                  : categoria === 'Lomos'? tamaño.tamaño === 'Individual'? 
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
                         animate={{ opacity: 1, scale: 0.85, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
@@ -168,7 +168,7 @@ const Description = () => {
                         src={imagen}
                         alt={nombre}
                       />
-                  : tamaño === 'Familiar'? 
+                  : tamaño.tamaño === 'Familiar'? 
                   <motion.img
                         initial={{ opacity: 0, scale: 0, rotate: 0 }} /* La imagen comienza más pequeña y totalmente transparente */
                         animate={{ opacity: 1, scale: 1.1, rotate: 360 }}  /* La imagen escala a su tamaño normal y se vuelve completamente visible */
