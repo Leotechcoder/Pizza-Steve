@@ -74,7 +74,7 @@ const Description = () => {
           </Link>)
           :(<button 
           onClick={handleBack}
-          className="ms-3 btn btn-back buttons-description">
+          className="ms-3 btn buttons-description">
                   <ArrowBackIosNewIcon className="svg-icon"/>
           </button>)}
           
@@ -94,15 +94,15 @@ const Description = () => {
         {/* Descripción del producto */}
         <div className="container-description d-flex flex-column justify-content-center text-center">
           {categoria === 'Empanadas' ? 
-          <h1 className="fs-6 my-4">{categoria} de {nombre}</h1> :
+          <h1 className="title-description">{categoria} de {nombre}</h1> :
           
           categoria === 'Pizzas' ? 
-          <h1 className="fs-5 my-4">Pizza {nombre}</h1> :
+          <h1 className="title-description">Pizza {nombre}</h1> :
 
           categoria === 'Hamburguesas'?
-          <h1 className="fs-5 my-4">Hamburguesa {nombre}</h1> :
+          <h1 className="title-description">Hamburguesa {nombre}</h1> :
 
-          <h1 className="fs-5 my-4">Lomo {nombre}</h1>
+          <h1 className="title-description">Lomo {nombre}</h1>
           }
           {categoria === 'Pizzas'? tamaño.tamaño === 'Pequeña'? 
                   <motion.img

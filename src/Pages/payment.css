@@ -1,21 +1,22 @@
 .div-master-payment{
+    width: 100%;
+    height: 100%;
     background-color: #f7f7f7;
+    justify-content: flex-start;
 }
-
-@media (min-width: 930px) {
-    .div-master-payment{
-        height: 90vh;
-    }
-}
-
 
 .div-productos-payment{
     height: 70%;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
-.h2-payment{
-    margin-left: 80px;
+.title-payment{
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    text-transform: uppercase;
 }
 
 .div-remove{
@@ -32,19 +33,28 @@
     font-weight: 600;
     font-size: 1.1rem;
 }
+.btn-back{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .container-articles{
     width:100%;
-    height: 500px;
+    max-height: 500px;
     background-color: rgba(189, 189, 214, 0.1) ;
     overflow-y: scroll;
     scrollbar-width: none;
 }
 
 .article-payment{
-    width: 280px;
+    min-width: 280px;
     height: 80px;
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
@@ -54,18 +64,71 @@
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 }
 
+
+
+/*para pantallas moviles pequeñas*/
 @media(min-width: 300px){
 .font-title-article{
     /*Voy a hacer un font-size con clamp para que se adapte a los distintos dispositivos mobil*/
-    font-size: clamp(10px, 1vw + .6rem, 18px);
+    font-size: clamp(10px, 1vw + .6rem, 13px);
+    font-weight: 700;
+}
+.btn-pagar-payment{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #FFA800;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, .2);
+}
+
+.remove-payment{
+    font-size: clamp(14px, 1vw + .3rem, 18px);
+}
+
+}
+
+
+
+/*Para pantallas moviles y tablets*/
+@media(min-width: 600px){
+    .font-title-article{
+        width: 80%;
+        font-size: clamp(10px, 1vw + .3rem, 12px);
+    }
+    .btn-pagar-payment{
+        margin: 20px auto;
+        width: 30%;
+        height: 80%;
+    }
+    .remove-payment{
+    font-size: clamp(15px, 1vw + .3rem, 18px);
 }
 }
 
-@media(min-width: 978px){
+
+/*Para pantallas tablets y escritorio*/
+@media(min-width: 930px){
+    .div-master-payment{
+        height: 90vh;
+    }
+
     .font-title-article{
+        
         font-size: clamp(10px, 1vw + .3rem, 13px);
     }
+    .remove-payment{
+        font-size: clamp(12px, 1vw + .3rem, 13px);
+    }
 }
+
+
+
+
+
 .img-art-payment{
     width: 75px;
     height: 75px;
@@ -94,6 +157,8 @@
     scale: .7;
 }
 .btn-art-payment{
+    max-width: 12px;
+    min-height: 15px;    
     scale: .7;
     display: flex;
     justify-content: center;
@@ -116,29 +181,35 @@
     width: 95%;
     margin: 0 auto;
 }
-.btn-pagar-payment{
-    width: 100%;
-    height: 100%;
-    background-color: #FFA800;
-    font-size: 1.1rem;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 255, .2);
-}
 
 
 /*Del article de payment*/
 
 .container-img-art{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
     grid-area: 1 / 1 / 5 / 3;
 }
 .container-title-art{
-    width: 100%;
+    width: 80%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     grid-area: 1 / 3 / 2 / 6; 
 }
 .container-price-art{
-    width: 100%;
+    width: 80%;
     height: 100%;
+    display: flex;
+    align-items: center;
     grid-area: 2 / 3 / 3 / 6;
 }
+
+.edit-artpay{
+    width: 20%;
+}
+

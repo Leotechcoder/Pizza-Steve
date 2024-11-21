@@ -9,13 +9,13 @@ import Sidebar2 from "../components/Sidebar2"
 const RootLayout = () => {
   return (
 
-    <div className="d-flex vw-100 vh-100">
+    <div className="d-flex container-master">
    
       <Sidebar2/>
    
       <div className='img-fondo-layout container-layout w-100'>
               
-            <div className="w-100 d-lg-none d-flex justify-content-between ">
+            <div className="container-title d-lg-none d-flex justify-content-between ">
 
               <div className="container-navbar-title">
               <Navbar/>

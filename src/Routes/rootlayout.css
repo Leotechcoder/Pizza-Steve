@@ -23,10 +23,37 @@
 .container-footer{
     width: 100%;
     height: 5%;
-}
+} 
 
 .img-fondo-layout{
     background-image: url('/pizza-piedra.jpg');
     background-size: cover;
 
+}
+
+@media(min-width: 300px){
+    /* Custom styles for smaller screens */
+    .container-master{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media(min-width: 600px){
+    .container-master{
+        width: 100%;
+        height: 100%;
+    }
+    .container-title{
+        width: 100%;
+        height: 10%;
+    }
+    .container-outlet{
+        width: 100%;
+        height: 80%;
+    }
+    .container-footer{
+        width: 100%;
+        height: 10%;
+    }
 }

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { calculateTotal, deleteMenu } from "../Feature/Pizzas/menuSlice";
 import Articlepayment from "../components/Articlepayment";
 import './paymentlg.css'
-
+import '../Pages/descripcion.css'
 
 
 const Payment = () => {
@@ -50,14 +50,14 @@ const handlePay = ()=>{
   return (
     <div className="d-none d-lg-flex flex-column mt-2 px-2 div-master-payment rounded-4">
       <div className='w-100 mt-2'>
-      <h2 className='roboto fs-5'>Mi pedido</h2>
+      <h2 className='roboto title-payment'>Carrito</h2>
     </div>
     <div className="w-100 d-flex flex-column gap-2">
 
         {/*btn para borrar todo */}
         <div className="">
-          <button onClick={handleDelete} className=" w-100 btn-remove-payment btn d-flex align-items-center justify-content-end ">
-            <span className="roboto fs-6">Borrar Todo</span>
+          <button onClick={handleDelete} className=" w-100  btn d-flex align-items-center justify-content-end ">
+            <span className="roboto remove-payment">Borrar Todo</span>
           </button>  
         </div>
         

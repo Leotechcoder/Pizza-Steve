@@ -53,18 +53,18 @@ const handlePay = ()=>{
 }
 
   return (
-    <div className="vw-100 vh-100 d-flex flex-column mt-2 px-2 div-master-payment">
+    <div className="d-flex flex-column mt-2 px-2 div-master-payment">
       <div className='w-100 d-flex justify-content-start mt-4'>
           <Link to={PATH.inicio} className='ms-3 btn btn-back '><ArrowBackIosNewIcon/></Link>
-          <h2 className='roboto h2-payment '>Su pedido</h2>    
+          <h2 className='roboto title-payment '>Carrito</h2>    
 
       </div>
     <div className="w-100 d-flex flex-column gap-2 div-productos-payment">
 
         {/*btn para borrar todo */}
         <div className="div-remove w-100">
-          <button onClick={handleDelete} className="w-50 btn-remove-payment btn d-flex align-items-center justify-content-end ">
-            <span className="roboto">Remover Todo</span>
+          <button onClick={handleDelete} className="w-50 btn d-flex align-items-center justify-content-end ">
+            <span className="roboto remove-payment">Remover Todo</span>
           </button>  
         </div>
         

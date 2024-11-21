@@ -98,18 +98,18 @@ const handleEdit = ()=>{
         <div className='w-100 d-flex gap-2 px-1 align-items-center text-left ps-2 container-title-art'>
 
           {categoria === 'Pizzas' ? 
-          <h2 className='w-75 font-title-article mt-1'>Pizza {nombre}</h2>
+          <h2 className='font-title-article mt-1'>Pizza {nombre}</h2>
           :categoria === 'Hamburguesas' ? 
-          <h2 className='w-75 font-title-article mt-1'>Hamburguesa {nombre}</h2>
+          <h2 className='font-title-article mt-1'>Hamburguesa {nombre}</h2>
           : categoria === 'Empanadas'?
-          <h2 className='w-75 font-title-article mt-1'>Empanadas de {nombre}</h2>
+          <h2 className='font-title-article mt-1'>Empanadas de {nombre}</h2>
           :
-          <h2 className='w-75 font-title-article mt-1'>Lomo {nombre}</h2>
+          <h2 className='font-title-article mt-1'>Lomo {nombre}</h2>
         }
 
         {window.innerWidth >= 968 ? 
         
-            <button onClick={handleEdit} className='btn d-flex justify-content-center w-25'>
+            <button onClick={handleEdit} className='btn d-flex justify-content-center edit-artpay'>
                 <UpdateIcon/>
                 {/* <span className="roboto span-count-art-payment">{count}</span> */}
             </button>
