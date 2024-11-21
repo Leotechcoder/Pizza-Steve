@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+import UpdateIcon from '@mui/icons-material/Update';
 import '../Pages/payment.css'
 import './typografy.css'
+import { newvisual, updateProductCart } from '../Feature/Pizzas/pizzaSlice';
 
 
 
@@ -15,7 +17,7 @@ const Articlepayment = ( { producto } ) => {
 //traigo y genero las variables con las que voy a trabajar
 
 
-const { id, nombre, precio, imagen, count } = producto;  
+const { id, nombre, precio, imagen, count, categoria } = producto;  
     
 const productoRef = useRef(producto)
 
@@ -61,7 +63,15 @@ const deleteProduct = ()=>{
   dispatch(calculateTotal())
 }
 
+const handleEdit = ()=>{
+  if(window.innerWidth >= 980){
 
+    dispatch(updateProductCart(producto))
+    dispatch(newvisual(true))
+  }else{
+    dispatch(updateProductCart(producto))
+  }
+}
 
 
 
@@ -85,12 +95,22 @@ const deleteProduct = ()=>{
         
         <div className='w-100 d-flex gap-2 px-1 align-items-center text-left ps-2 container-title-art'>
 
-                <h2 className='w-75 font-title-article mt-1'>{nombre}</h2>
+          {categoria === 'Pizzas' ? 
+          <h2 className='w-75 font-title-article mt-1'>Pizza {nombre}</h2>
+          :categoria === 'Hamburguesas' ? 
+          <h2 className='w-75 font-title-article mt-1'>Hamburguesa {nombre}</h2>
+          : categoria === 'Empanadas'?
+          <h2 className='w-75 font-title-article mt-1'>Empanadas de {nombre}</h2>
+          :
+          <h2 className='w-75 font-title-article mt-1'>Lomo {nombre}</h2>
+        }
+
                 
-                <div className='d-flex justify-content-end w-25'>
-                    
-                    <span className="roboto span-count-art-payment">{count}</span>
-                </div>
+                
+                <button onClick={handleEdit} className='btn d-flex justify-content-center w-25'>
+                    <UpdateIcon/>
+                    {/* <span className="roboto span-count-art-payment">{count}</span> */}
+                </button>
                 
 
         </div>
@@ -110,6 +130,10 @@ const deleteProduct = ()=>{
                       >
                         <RemoveIcon className='remove-icon'/>
                       </button>
+
+                      <div className='w-100 d-flex justify-content-center align-items-center'>
+                      <span className="roboto span-count-art-payment">{count}</span>
+                      </div>
 
                       <button 
                       onClick={handleAddCount} 

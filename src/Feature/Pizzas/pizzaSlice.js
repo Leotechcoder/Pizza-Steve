@@ -4,6 +4,7 @@ import { Productos } from "../../Data/Productos.js"
 const initialState = {
     list: Productos,
     productCart: {},
+    editproductCart: {},
     like: false,
     selectedCarta: Productos ,
     categoria: ['Pizzas', 'Empanadas', 'Hamburguesas', 'Lomos'],
@@ -12,7 +13,9 @@ const initialState = {
     count: 1,
     display: true, 
     visual: false,
-    tamaño:"",
+    tamaño:null,
+    toppingsSelect: {},
+    tipoSelect: {},
 }
 
 const pizzas = createSlice(
@@ -68,13 +71,30 @@ const pizzas = createSlice(
                 state.visual = action.payload; // Cambiar el estado de visual
             },
             setTamaño: (state, action) => {
-                state.tamaño = action.payload;
+                state.tamaño = action.payload; // { id: "algún id", tamaño: "valor del tamaño" }
+              },
+            
+            editProductCart: (state, action) => {
+                state.editproductCart = action.payload;
             },
 
-        },
+            setToppingsSelect: (state, action) => {
+                state.toppingsSelect = {
+                  ...state.toppingsSelect, // Mantén los toppings existentes
+                  [action.payload.id]: action.payload.toppings, // Actualiza los toppings de una categoría específica
+                };
+              },
+            setTipoSelect: (state, action) => {
+                state.tipoSelect = {
+                  ...state.tipoSelect, // Mantén los valores existentes
+                  [action.payload.id]: action.payload.type, // Actualiza el tipo de la categoría específica
+                };
+            },
+                
+            
     }
-)
+})
 
-export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateProductCart, updateLike, incrementCount, decrementCount, newCount, toggleDisplay, newvisual, setTamaño } = pizzas.actions;
+export const { addMenu, updateMenu, selectedCarta, setLoading, setError, updateProductCart, updateLike, incrementCount, decrementCount, newCount, toggleDisplay, newvisual, setTamaño, editProductCart, setToppingsSelect, setTipoSelect } = pizzas.actions;
 
 export default pizzas.reducer;

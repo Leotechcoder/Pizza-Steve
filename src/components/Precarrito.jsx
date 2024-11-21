@@ -17,9 +17,7 @@ const Description = () => {
   
   // Selección del estado desde Redux
   const like = useSelector((store) => store.pizzas.like);
-  const producto = useSelector(
-    (store) => store.pizzas.productCart
-  );
+  const producto = useSelector((store) => store.pizzas.productCart );
   const { tamaño } = useSelector(store=>store.pizzas)
   const dispatch = useDispatch();
 
@@ -52,7 +50,12 @@ const Description = () => {
   }
 
   useEffect(() => {
-   dispatch(newCount(1))
+    if(producto.count){
+      dispatch(newCount(producto.count))
+    }else{
+
+      dispatch(newCount(1))
+    }
   }, [producto])
   
 

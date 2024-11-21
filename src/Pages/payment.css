@@ -54,21 +54,31 @@
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 }
 
+@media(min-width: 300px){
 .font-title-article{
     /*Voy a hacer un font-size con clamp para que se adapte a los distintos dispositivos mobil*/
-    font-size: clamp(10px, 1vw + .7rem, 18px);
+    font-size: clamp(10px, 1vw + .6rem, 18px);
+}
+}
+
+@media(min-width: 978px){
+    .font-title-article{
+        font-size: clamp(10px, 1vw + .3rem, 13px);
+    }
 }
 .img-art-payment{
     width: 75px;
     height: 75px;
     border-radius: 15px 10px 10px 15px;
     margin-left: 10px;
+    filter: drop-shadow(1px 1px 7px rgba(0, 0, 0, 0.5));
+    transition: filter 0.7s ease;
 }
 .span-count-art-payment{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 1rem;
     background-color: #FFA800;
     border-radius: 50%;
@@ -81,10 +91,12 @@
     background: #F7F7F7;
     border-radius: 40px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
-    scale: .6;
+    scale: .7;
 }
 .btn-art-payment{
-    scale: .6;
+    scale: .7;
+    display: flex;
+    justify-content: center;
 }
 .btn-delete-art{
     width: 15%;

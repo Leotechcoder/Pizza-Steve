@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import CheckIcon from "@mui/icons-material/Check";
 import { useDispatch, useSelector } from "react-redux";
 import { newCount } from "../Feature/Pizzas/pizzaSlice";
 import ButtonsSelectCart from "./ButtonsSelectCart";
+import ToppingsSelector from "./ToppingsSelector";
+import { setToppingsSelect } from "../Feature/Pizzas/pizzaSlice"; 
+import TypeSelector from "./TypeSelector";
+import { setTipoSelect } from "../Feature/Pizzas/pizzaSlice";
+
 
 export default function SelectCart({ producto }) {
-  const { categoria, nombre } = producto;
+  const { categoria, nombre, id } = producto;
   
   const { count } = useSelector(store=>store.pizzas)
   const dispatch = useDispatch()
@@ -15,7 +18,6 @@ export default function SelectCart({ producto }) {
   const [size, setSize] = useState("");
   const [type, setType] = useState(nombre);
   const [toppings, setToppings] = useState([]);
-  const [isTypeOpen, setIsTypeOpen] = useState(false);
 
   // Opciones según categoría
   const options = {
@@ -77,13 +79,32 @@ export default function SelectCart({ producto }) {
   }, [producto]);
 
   // Manejo de toppings
+  // const handleToppingChange = (topping) => {
+  //   setToppings((prevToppings) =>
+  //     prevToppings.includes(topping)
+  //       ? prevToppings.filter((t) => t !== topping)
+  //       : [...prevToppings, topping]
+  //   );
+  // };
+
+
   const handleToppingChange = (topping) => {
-    setToppings((prevToppings) =>
-      prevToppings.includes(topping)
-        ? prevToppings.filter((t) => t !== topping)
-        : [...prevToppings, topping]
+    // Actualiza el estado local
+    const updatedToppings = toppings.includes(topping)
+      ? toppings.filter((t) => t !== topping)
+      : [...toppings, topping];
+  
+    setToppings(updatedToppings);
+  
+    // Actualiza el estado global en Redux
+    dispatch(
+      setToppingsSelect({
+        id: id, 
+        toppings: updatedToppings, // Nuevos toppings seleccionados
+      })
     );
   };
+  
 
   // Manejo del tamaño y actualización de `countRef`
   const handleSize = (selectedSize) => {
@@ -102,6 +123,16 @@ export default function SelectCart({ producto }) {
 
   const tamaños = currentOptions.sizes;
 
+  const updateGlobalType = (selectedType) => {
+    dispatch(
+      setTipoSelect({
+        id: id,
+        type: selectedType, // Tipo seleccionado
+      })
+    );
+  };
+  
+
   return (
     <div className="bg-light vh-50 d-flex align-items-center justify-content-center p-2">
       <div
@@ -110,12 +141,18 @@ export default function SelectCart({ producto }) {
       >
         {/* Tamaño o Cantidad */}
         
-       {   <ButtonsSelectCart tamaños={tamaños} categoria={categoria}  size={size} handleSize={handleSize}/>
+       {   <ButtonsSelectCart 
+                id = {id}
+                tamaños={tamaños} 
+                categoria={categoria}  
+                size={size} 
+                handleSize={handleSize}
+            />
 
         }
 
         {/* Tipo (Solo seleccionable para Pizzas) */}
-        {categoria === "Pizzas" && (
+        {/* {categoria === "Pizzas" && (
           <div className="mb-4">
             <label className="form-label">Tipo</label>
             <div className="position-relative">
@@ -148,10 +185,22 @@ export default function SelectCart({ producto }) {
               )}
             </div>
           </div>
-        )}
+        )} */}
+        
+        <TypeSelector
+              categoria={categoria}
+              currentOptions={currentOptions}
+              type={type}
+              setType={setType}
+              updateGlobalType={updateGlobalType}
+            />
+
+
+
+
 
         {/* Toppings (No para Empanadas) */}
-        {categoria !== "Empanadas" && currentOptions.toppings.length > 0 && (
+        {/* {categoria !== "Empanadas" && currentOptions.toppings.length > 0 && (
           <div className="mb-4">
             <label className="form-label">Toppings</label>
             <div className="row row-cols-2 g-2">
@@ -175,7 +224,14 @@ export default function SelectCart({ producto }) {
               ))}
             </div>
           </div>
-        )}
+        )} */}
+
+        <ToppingsSelector 
+          categoria={categoria}
+          currentOptions={currentOptions}
+          toppings={toppings}
+          handleToppings={handleToppingChange}
+        />
 
         {/* Resumen */}
         <div className="bg-light rounded p-3 mt-4">

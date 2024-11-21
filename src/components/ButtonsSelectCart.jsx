@@ -2,9 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { setTamaño } from "../Feature/Pizzas/pizzaSlice";
 
-const ButtonsSelectCart = ({ categoria, tamaños, handleSize }) => {
+const ButtonsSelectCart = ({ id, categoria, tamaños, handleSize }) => {
   const dispatch = useDispatch();
   const { display } = useSelector((store) => store.pizzas);
+  const size = useSelector((store) => store.pizzas.tamaño);
+
 
   // Estado local para rastrear el tamaño seleccionado
   const [selectedSize, setSelectedSize] = useState(null);
@@ -13,18 +15,21 @@ const ButtonsSelectCart = ({ categoria, tamaños, handleSize }) => {
     // Cambiamos el tamaño seleccionado solo si el botón ya no está seleccionado
     setSelectedSize((prevSize) => (prevSize === tamaño ? null : tamaño));
     handleSize(tamaño)
-    dispatch(setTamaño(tamaño)); // Alternamos el valor de display
+    dispatch(setTamaño({
+      id: id, 
+      tamaño: tamaño,
+      })); 
   };
 
+  // useEffect para sincronizar el tamaño seleccionado basado en el estado global
   useEffect(() => {
-    if(categoria === 'Empanadas'){
-
-      if( selectedSize !== null){
-        setSelectedSize(null);
-      }
+    // Si el id coincide con el tamaño.id en el estado global, actualiza selectedSize
+    if (size?.id === id) {
+      setSelectedSize(size.tamaño); // Actualiza el tamaño seleccionado
+    } else {
+      setSelectedSize(null); // Reinicia si no hay coincidencia
     }
-   
-  }, [display])
+  }, [size, id]);
   
 
   return (

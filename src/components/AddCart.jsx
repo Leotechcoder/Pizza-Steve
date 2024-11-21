@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { PATH } from "../Routes/PATH";
 import AddShoppingCart from "@mui/icons-material/AddShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
-import { addMenu, newvisual } from "../Feature/Pizzas/pizzaSlice";
+import { addMenu } from "../Feature/Pizzas/menuSlice";
+import { newvisual } from "../Feature/Pizzas/pizzaSlice"
 import { calculateTotal } from "../Feature/Pizzas/menuSlice";
 import { useState, useEffect } from "react";
 
 const AddCart = () => {
   // Obtener producto y count del store
-  const { productCart, count } = useSelector((store) => store.pizzas);
+  const { productCart, count } = useSelector(store => store.pizzas);
   const { id, nombre, precio, imagen, categoria } = productCart;
 
   const dispatch = useDispatch();
