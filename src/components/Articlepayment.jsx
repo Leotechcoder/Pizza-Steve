@@ -9,6 +9,8 @@ import UpdateIcon from '@mui/icons-material/Update';
 import '../Pages/payment.css'
 import './typografy.css'
 import { newvisual, updateProductCart } from '../Feature/Pizzas/pizzaSlice';
+import { Link } from 'react-router-dom';
+import { PATH } from '../Routes/PATH'
 
 
 
@@ -105,12 +107,20 @@ const handleEdit = ()=>{
           <h2 className='w-75 font-title-article mt-1'>Lomo {nombre}</h2>
         }
 
+        {window.innerWidth >= 968 ? 
+        
+            <button onClick={handleEdit} className='btn d-flex justify-content-center w-25'>
+                <UpdateIcon/>
+                {/* <span className="roboto span-count-art-payment">{count}</span> */}
+            </button>
+            :
+            <Link to={PATH.descripcion} onClick={handleEdit} className='btn d-flex justify-content-center w-25'>
+                <UpdateIcon/>
+                {/* <span className="roboto span-count-art-payment">{count}</span> */}
+            </Link>
+      
+      }        
                 
-                
-                <button onClick={handleEdit} className='btn d-flex justify-content-center w-25'>
-                    <UpdateIcon/>
-                    {/* <span className="roboto span-count-art-payment">{count}</span> */}
-                </button>
                 
 
         </div>

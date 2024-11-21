@@ -13,7 +13,7 @@ const initialState = {
     count: 1,
     display: true, 
     visual: false,
-    tamaño:null,
+    tamaño:{},
     toppingsSelect: {},
     tipoSelect: {},
 }
@@ -64,8 +64,8 @@ const pizzas = createSlice(
             newCount: (state, action)=>{
                 state.count = action.payload; // Cambiar el contador global a un nuevo valor
             },
-            toggleDisplay: (state) => {
-                state.display =!state.display; // Cambiar el estado de display
+            toggleDisplay: (state, action) => {
+                state.display = action.payload; // Cambiar el estado de display
             },
             newvisual: (state, action) => {
                 state.visual = action.payload; // Cambiar el estado de visual

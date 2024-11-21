@@ -145,7 +145,6 @@ export default function SelectCart({ producto }) {
                 id = {id}
                 tamaños={tamaños} 
                 categoria={categoria}  
-                size={size} 
                 handleSize={handleSize}
             />
 
