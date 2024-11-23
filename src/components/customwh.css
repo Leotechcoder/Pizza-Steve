@@ -51,25 +51,16 @@
 
 
 /*Breakpoint a partir de los 469px de ancho de pantalla*/
-@media (min-width: 437px) {
+@media (min-width: 500px) {
     .custom-width-img-article {
         width: 90%; 
-        height: 45%;
+        height: 40%;
         object-fit: contain;
         scale: .9;
+       
     }
 
-      
-    .custom-div-description-article {
-        width: 100%;
-        height: 65%;
-    }
 
-    .custom-article {
-        width: 100%; 
-        height: 100%;
-        flex-direction: column;
-    }
 
 }
 

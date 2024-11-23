@@ -65,6 +65,7 @@
 @media (min-width: 500px) {
     .section-carta{
         grid-template-columns: repeat(auto-fit, minmax(140px, 160px));
+        grid-auto-rows: 200px;
     }
 }
 
