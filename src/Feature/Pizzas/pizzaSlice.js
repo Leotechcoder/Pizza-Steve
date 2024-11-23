@@ -14,8 +14,8 @@ const initialState = {
     display: true, 
     visual: false,
     tamaño:{},
-    toppingsSelect: {},
     tipoSelect: {},
+    toppingsSelect: [],
 }
 
 const pizzas = createSlice(
@@ -71,7 +71,7 @@ const pizzas = createSlice(
                 state.visual = action.payload; // Cambiar el estado de visual
             },
             setTamaño: (state, action) => {
-                state.tamaño = action.payload; // { id: "algún id", tamaño: "valor del tamaño" }
+                state.tamaño = action.payload; // Actualiza el tamaño
               },
             
             editProductCart: (state, action) => {
@@ -79,16 +79,11 @@ const pizzas = createSlice(
             },
 
             setToppingsSelect: (state, action) => {
-                state.toppingsSelect = {
-                  ...state.toppingsSelect, // Mantén los toppings existentes
-                  [action.payload.id]: action.payload.toppings, // Actualiza los toppings de una categoría específica
-                };
+                state.toppingsSelect = action.payload;
               },
             setTipoSelect: (state, action) => {
-                state.tipoSelect = {
-                  ...state.tipoSelect, // Mantén los valores existentes
-                  [action.payload.id]: action.payload.type, // Actualiza el tipo de la categoría específica
-                };
+                state.tipoSelect =  action.payload // Actualiza el tipo de la categoría específica
+              
             },
                 
             

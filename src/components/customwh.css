@@ -6,22 +6,20 @@
 
 /*Contenedor padre de la imagen*/
 .custom-width-img-article {
-    width: 40%; /* Para pantallas pequeñas */
-    height: 100%;
+    width: 100%; /* Para pantallas pequeñas */
+    height: 50%;
     padding: 0 10px;
     /* background-color: hsla(0, 0%, 100%, 0.8); */
     display: flex;
     align-items: center;
 }
 
-.custom-width-img-article img{
-    mix-blend-mode: darken;
-}
+
 
 /*Contenedor padre de la descripción*/
 .custom-div-description-article{
-    width: 50%; /* Para pantallas pequeñas */
-    height: 100%;
+    width: 100%; /* Para pantallas pequeñas */
+    height: 50%;
 }
 
 /*Contenedor del titulo*/
@@ -79,6 +77,8 @@
     .section-carta{
         width: 90%;
         height: 65vh;
+        column-gap: 1.2rem;
+        row-gap: 1.2rem;
     }
 }
 

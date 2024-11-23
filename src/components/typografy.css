@@ -99,7 +99,7 @@
 }
 
 .h2-article{
-  font-size: clamp(1.2rem, 1.4rem, 1.6rem);
+  font-size: clamp(18px, 1vw + .8rem, 25px);
   color: var(--color-azul-secundario);
   text-align: center;
 }

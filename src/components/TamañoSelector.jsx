@@ -4,7 +4,7 @@ import { setTamaño } from "../Feature/Pizzas/pizzaSlice";
 import { toggleDisplay } from "../Feature/Pizzas/pizzaSlice";
 
 
-const ButtonsSelectCart = ({ id, categoria, tamaños, handleSize }) => {
+const TamañoSelector = ({ id, categoria, tamaños, handleSize }) => {
   const dispatch = useDispatch();
   const { display } = useSelector((store) => store.pizzas);
   const size = useSelector((store) => store.pizzas.tamaño);
@@ -16,26 +16,22 @@ const ButtonsSelectCart = ({ id, categoria, tamaños, handleSize }) => {
   const handleButtonClick = (tamaño) => {
     dispatch(toggleDisplay(true))
     // Cambiamos el tamaño seleccionado solo si el botón ya no está seleccionado
-    setSelectedSize((prevSize) => (prevSize === tamaño ? null : tamaño));
-    handleSize(tamaño)
-    dispatch(setTamaño({
-      id: id, 
-      tamaño: tamaño,
-      })); 
+    if (size !== tamaño) {
+      setSelectedSize((prevSize) => (prevSize === tamaño ? null : tamaño));
+      handleSize(tamaño)
+      dispatch(setTamaño(tamaño));
+    }else{
+      handleSize(size)
+    }
   };
 
   // useEffect para sincronizar el tamaño seleccionado basado en el estado global
   useEffect(() => {
     // Si el id coincide con el tamaño.id en el estado global, actualiza selectedSize
-    if (size?.id === id) {
-      setSelectedSize(size.tamaño); // Actualiza el tamaño seleccionado
-    } else{
-      setSelectedSize(null); // Reinicia si no hay coincidencia
-    }if(!display){
-      if(categoria === 'Empanadas'){
-
-        setSelectedSize(null);
-      }
+    if (size) {
+      setSelectedSize(size);
+    } else if (!display && categoria === "Empanadas") {
+      setSelectedSize(null);
     }
   }, [size, id, display]);
   
@@ -66,4 +62,4 @@ const ButtonsSelectCart = ({ id, categoria, tamaños, handleSize }) => {
   );
 };
 
-export default ButtonsSelectCart;
+export default TamañoSelector;

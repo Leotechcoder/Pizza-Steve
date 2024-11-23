@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { newCount } from "../Feature/Pizzas/pizzaSlice";
-import ButtonsSelectCart from "./ButtonsSelectCart";
+import TamañoSelector from "./TamañoSelector";
 import ToppingsSelector from "./ToppingsSelector";
 import { setToppingsSelect } from "../Feature/Pizzas/pizzaSlice"; 
 import TypeSelector from "./TypeSelector";
@@ -9,7 +9,7 @@ import { setTipoSelect } from "../Feature/Pizzas/pizzaSlice";
 
 
 export default function SelectCart({ producto }) {
-  const { categoria, nombre, id } = producto;
+  const { categoria, nombre, id, tamaño, tipoSelect, toppingsSelect } = producto;
   
   const { count } = useSelector(store=>store.pizzas)
   const dispatch = useDispatch()
@@ -78,15 +78,7 @@ export default function SelectCart({ producto }) {
     }
   }, [producto]);
 
-  // Manejo de toppings
-  // const handleToppingChange = (topping) => {
-  //   setToppings((prevToppings) =>
-  //     prevToppings.includes(topping)
-  //       ? prevToppings.filter((t) => t !== topping)
-  //       : [...prevToppings, topping]
-  //   );
-  // };
-
+  
 
   const handleToppingChange = (topping) => {
     // Actualiza el estado local
@@ -98,10 +90,7 @@ export default function SelectCart({ producto }) {
   
     // Actualiza el estado global en Redux
     dispatch(
-      setToppingsSelect({
-        id: id, 
-        toppings: updatedToppings, // Nuevos toppings seleccionados
-      })
+      setToppingsSelect(updatedToppings) //es un array
     );
   };
   
@@ -125,10 +114,7 @@ export default function SelectCart({ producto }) {
 
   const updateGlobalType = (selectedType) => {
     dispatch(
-      setTipoSelect({
-        id: id,
-        type: selectedType, // Tipo seleccionado
-      })
+      setTipoSelect(selectedType) //tipo seleccionado
     );
   };
   
@@ -141,7 +127,7 @@ export default function SelectCart({ producto }) {
       >
         {/* Tamaño o Cantidad */}
         
-       {   <ButtonsSelectCart 
+       {   <TamañoSelector 
                 id = {id}
                 tamaños={tamaños} 
                 categoria={categoria}  
@@ -150,42 +136,7 @@ export default function SelectCart({ producto }) {
 
         }
 
-        {/* Tipo (Solo seleccionable para Pizzas) */}
-        {/* {categoria === "Pizzas" && (
-          <div className="mb-4">
-            <label className="form-label">Tipo</label>
-            <div className="position-relative">
-              <button
-                className="btn btn-light w-100 text-start d-flex justify-content-between align-items-center"
-                onClick={() => setIsTypeOpen(!isTypeOpen)}
-              >
-                {type || "Selecciona el tipo"}
-                <KeyboardArrowDownIcon
-                  className={`ms-2 transition-transform ${
-                    isTypeOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isTypeOpen && (
-                <div className="position-absolute bg-white border mt-1 w-100 rounded shadow">
-                  {currentOptions.types.map((t) => (
-                    <button
-                      key={t}
-                      className="btn btn-light w-100 text-start p-2"
-                      onClick={() => {
-                        setType(t);
-                        setIsTypeOpen(false);
-                      }}
-                    >
-                      {t}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        )} */}
-        
+        {/*Tipo  */}
         <TypeSelector
               categoria={categoria}
               currentOptions={currentOptions}
@@ -195,42 +146,18 @@ export default function SelectCart({ producto }) {
             />
 
 
-
-
-
-        {/* Toppings (No para Empanadas) */}
-        {/* {categoria !== "Empanadas" && currentOptions.toppings.length > 0 && (
-          <div className="mb-4">
-            <label className="form-label">Toppings</label>
-            <div className="row row-cols-2 g-2">
-              {currentOptions.toppings.map((topping) => (
-                <div key={topping.name} className="col">
-                  <button
-                    className={`btn w-100 text-start ${
-                      toppings.includes(topping.name)
-                        ? "btn-success text-white"
-                        : "btn-light"
-                    }`}
-                    onClick={() => handleToppingChange(topping.name)}
-                  >
-                    <span className="me-2">{topping.icon}</span>
-                    {topping.name}
-                    {toppings.includes(topping.name) && (
-                      <CheckIcon className="ms-auto text-white" />
-                    )}
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )} */}
-
+        {/*Los gustos */}
         <ToppingsSelector 
-          categoria={categoria}
-          currentOptions={currentOptions}
-          toppings={toppings}
-          handleToppings={handleToppingChange}
-        />
+            categoria={categoria}
+            currentOptions={currentOptions}
+            toppings={toppings}
+            handleToppings={handleToppingChange}
+            toppingsSelect={toppingsSelect}
+            /> 
+       
+
+        
+
 
         {/* Resumen */}
         <div className="bg-light rounded p-3 mt-4">

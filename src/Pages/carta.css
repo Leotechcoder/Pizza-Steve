@@ -52,20 +52,24 @@
     display: grid;
     margin: 0 auto;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 290px));
-    grid-auto-rows: 180px;
-    column-gap: 1.2rem;
-    row-gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 500px));
+    grid-auto-rows: 150px;
+    /* column-gap: 1.2rem;
+    row-gap: 1.2rem; */
     padding-top: 25px;
     overflow-y: auto;
     scrollbar-gutter: stable;
     scrollbar-width: none;
 }
 
-@media (min-width: 437px) {
+@media (min-width: 500px) {
     .section-carta{
         grid-template-columns: repeat(auto-fit, minmax(140px, 160px));
     }
+}
+
+@media (min-width: 660px) {
+    
 }
 
 #section-carta::-webkit-scrollbar{
