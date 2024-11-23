@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import IconButton from '@mui/material/IconButton';
 import AlarmIcon from '@mui/icons-material/Alarm';
-import  AddShoppingCart from '@mui/icons-material/AddShoppingCart'
 import { Link } from 'react-router-dom';
 import { PATH } from '../Routes/PATH';
 import { useDispatch } from 'react-redux';
@@ -14,7 +13,7 @@ const Article = ( { producto } ) => {
 
   const dispatch = useDispatch()
 
-const { id, nombre, precio, demora, imagen, categoria } = producto; 
+const { id, nombre, precio, demora, imagen, categoria, descripcion } = producto; 
 
 //abre el detalle
 const handleClick = ()=>{
@@ -27,85 +26,141 @@ const handleClick = ()=>{
   }
 }
 
-// const handleAddCart = () => {
-//   let count = 1
-//   dispatch(addMenu({id, nombre, imagen, count, precio }))
-//   dispatch(calculateTotal())
-// }
-
 
   return (
-    <motion.article 
-      id={id} 
-      className='article custom-article'
-      initial={{ opacity: 0.8, scale: 0.85 }} // Estado inicial antes de estar en vista
-      whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
-      exit={{ opacity: 0.8, scale: 0.85 }} // Estado al salir de la vista
-      transition={{ duration: 0.3 }} // Duración de la animación
-      viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
-      
-      >
-        <div className='custom-width-img-article'>
+      window.innerWidth>=980 ? 
+                   <button onClick={handleClick} className= ' btn-link-article'>
+                       
+                           <motion.article 
+                             id={id} 
+                             className='article custom-article'
+                             initial={{ opacity: 0.8, scale: 0.85 }} // Estado inicial antes de estar en vista
+                             whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
+                             exit={{ opacity: 0.8, scale: 0.85 }} // Estado al salir de la vista
+                             transition={{ type: 'tween', duration: 0.3 }} // Duración de la animación
+                             viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
+                             
+                             >
+                               <div className='custom-width-img-article'>
+     
+                                 
+     
+                                 <img className='img-article' src={imagen} alt={categoria} />
+     
+                               </div>
+     
+     
+                               <div className='div-description-article'>
+     
+                                 
+                               <div className='div-title-article '>
+     
+                                  {categoria === 'Pizzas' ? 
+                                      <h2 className=' h2-article alegreya'>Pizza {nombre}</h2>
+                                      :
+                                      categoria === 'Hamburguesas'?
+                                      <h2 className=' h2-article alegreya'>Hamburguesa {nombre}</h2>
+                                      :
+                                      categoria === 'Empanadas'?
+                                      <h2 className=' h2-article alegreya'>Empanadas de {nombre}</h2>
+                                      :
+                                      <h2 className=' h2-article alegreya'>Lomo {nombre}</h2>
+                                      
+                                    }
+                                </div>
 
-          <img className='img-article' src={imagen} alt="Pizza" />
+                                <div className='div-article-description'>
+                                  <p className="h-100">{descripcion}</p>
+                                </div>
 
-        </div>
-        <div className='div-description-article custom-div-description-article'>
+                              <div className='div-data-article'>
+                                     <span className='span-alarm-art'>
+                                           <IconButton  color="secondary" aria-label="add an alarm">
+                                                   <AlarmIcon className="icon-alarm"/>
+                                           </IconButton> 
+                                           <span className=''>
+                                                 {demora}
+                                           </span>
+                                     </span>
+                                       <span 
+                                             className='span-price-article'
+                                             >
+                                               ${precio}
+                                       </span>
+                                 </div>
+                                 
+                                 </div>
+                                 </motion.article>
+                   </button>
+                   :
 
-          <div className='div-title-article '>
-
-            {categoria === 'Pizzas' ? 
-                <h2 className=' h2-article alegreya'>Pizza {nombre}</h2>
-                :
-                categoria === 'Hamburguesas'?
-                  <h2 className=' h2-article alegreya'>Hamburguesa {nombre}</h2>
-                :
-                categoria === 'Empanadas'?
-                  <h2 className=' h2-article alegreya'>Empanadas de {nombre}</h2>
-                :
-                  <h2 className=' h2-article alegreya'>Lomo {nombre}</h2>
-               
-            }
-
-          
-          </div>
-
-          <div className='div-data-article'>
-              <span className='span-alarm-art'>
-                    <IconButton  color="secondary" aria-label="add an alarm">
-                            <AlarmIcon className="icon-alarm"/>
-                    </IconButton> 
-                    <span className=''>
-                          {demora}
-                    </span>
-              </span>
-          </div>
-          <div className='div-btn-article'>
-             
-                <span 
-                      className='span-price-article'
-                      >
-                        ${precio}
-                </span>
-
-                {window.innerWidth>=980 ? 
-              <button onClick={handleClick} className= ' btn-link-article'>
-              <AddShoppingCart className='icon-article'/>
-              </button>
-              :
-
-              <Link onClick={handleClick} to={PATH.descripcion} className= ' btn-link-article'>
-                    <AddShoppingCart className='icon-article'/>
-              </Link>
-              }
+            <Link onClick={handleClick} to={PATH.descripcion} onClickCapture={handleClick} className= ' btn-link-article'>
+              <motion.article 
+                id={id} 
+                className='article custom-article'
+                initial={{ opacity: 0.8, scale: 0.85 }} // Estado inicial antes de estar en vista
+                whileInView={{ opacity: 1, scale: 0.95 }} // Estado al estar en vista al 90%
+                exit={{ opacity: 0.8, scale: 0.85 }} // Estado al salir de la vista
+                transition={{ type: 'tween', duration: 0.3 }} // Duración de la animación
+                viewport={{ once: false, amount: 0.85 }} // Activa whenInView cuando el 90% esté en vista
                 
-              {/* <button className='btn-carrito-article'  onClick={handleAddCart} ><AddShoppingCart className='icon-article'/></button> */}
-             
-          </div>
-          
+                >
+                  <div className='custom-width-img-article'>
 
-        </div>
-    </motion.article>
+                    <div className='div-title-article '>
+
+                      {categoria === 'Pizzas' ? 
+                          <h2 className=' h2-article alegreya'>Pizza {nombre}</h2>
+                          :
+                          categoria === 'Hamburguesas'?
+                          <h2 className=' h2-article alegreya'>Hamburguesa {nombre}</h2>
+                          :
+                          categoria === 'Empanadas'?
+                          <h2 className=' h2-article alegreya'>Empanadas de {nombre}</h2>
+                          :
+                          <h2 className=' h2-article alegreya'>Lomo {nombre}</h2>
+                          
+                        }
+                    </div>
+
+                    <img className='img-article' src={imagen} alt={categoria} />
+
+                  </div>
+
+
+                  <div className='div-description-article custom-div-description-article'>
+
+                    
+                    <div className='div-article-description'>
+                      <p>{descripcion}</p>
+                    </div>
+                    <div className='div-data-article'>
+                        <span className='span-alarm-art'>
+                              <IconButton  color="secondary" aria-label="add an alarm">
+                                      <AlarmIcon className="icon-alarm"/>
+                              </IconButton> 
+                              <span className=''>
+                                    {demora}
+                              </span>
+                        </span>
+                          <span 
+                                className='span-price-article'
+                                >
+                                  ${precio}
+                          </span>
+                    </div>
+
+
+                            
+                      
+                          
+                      
+                      
+                    
+                    
+                    </div>
+                    </motion.article>
+                    </Link>
   )
 }
 

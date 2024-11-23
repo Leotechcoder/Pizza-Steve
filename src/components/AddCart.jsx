@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 const AddCart = () => {
   // Obtener producto y count del store
-  const { productCart, count } = useSelector(store => store.pizzas);
+  const { productCart, count, tamaño, tipoSelect, toppingsSelect } = useSelector(store => store.pizzas);
   const { id, nombre, precio, imagen, categoria } = productCart;
 
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const AddCart = () => {
 
   // Función para manejar el botón "Agregar al carrito"
   const handleAddCart = () => {
-    dispatch(addMenu({ id, nombre, precio, imagen, categoria, count }));
+    dispatch(addMenu({ id, nombre, precio, imagen, categoria, count, tamaño, tipoSelect, toppingsSelect }));
     dispatch(calculateTotal());
     dispatch(newvisual(false));
   };

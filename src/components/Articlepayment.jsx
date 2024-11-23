@@ -20,6 +20,8 @@ const Articlepayment = ( { producto } ) => {
 
 
 const { id, nombre, precio, imagen, count, categoria } = producto;  
+
+
     
 const productoRef = useRef(producto)
 
@@ -34,7 +36,6 @@ const dispatch = useDispatch()
 
 let pricecurrent = precio * count
 
-//funcion para el boton de pagar
 
 //funciones para el boton de sumar y restar cantidad
 
