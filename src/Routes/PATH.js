@@ -1,7 +1,10 @@
 export const PATH = {
-    inicio: '/',
+    inicio: '/carta',
     casa: '/casa',
     descripcion: '/descripcion',
     payment: '/pago',
-    error: '/error'
+    error: '/error',
+    login: '/',
+    cliente: '/cliente',
+    admin: '/admin',
 };
